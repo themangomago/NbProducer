@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
+[ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/rooms/level.png" type="Texture" id=3]
+[ext_resource path="res://src/Visuals/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Visuals/Rooms/Bed.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Visuals/Rooms/NewspaperObject.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Levels/UI.gd" type="Script" id=7]
+[ext_resource path="res://src/Gui/NewspaperGui.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Gui/ClubGui.tscn" type="PackedScene" id=9]
+
+[node name="GameInstance" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="TalentPool" type="Node" parent="."]
+
+[node name="Club" type="Node" parent="."]
+
+[node name="Company" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource( 7 )
+
+[node name="Label" type="Label" parent="UI"]
+margin_left = 5.0
+margin_top = 10.0
+margin_right = 77.0
+margin_bottom = 24.0
+text = "Hello Level"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnNextWeek" type="Button" parent="UI"]
+margin_left = 284.0
+margin_top = 6.0
+margin_right = 366.0
+margin_bottom = 26.0
+text = "Next Week"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NewspaperGui" parent="UI" instance=ExtResource( 8 )]
+visible = false
+
+[node name="ClubGui" parent="UI" instance=ExtResource( 9 )]
+visible = false
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 100, 286 )
+texture = ExtResource( 3 )
+
+[node name="Bed" parent="." instance=ExtResource( 5 )]
+position = Vector2( -59.85, 384.9 )
+
+[node name="Newspaper" parent="." instance=ExtResource( 6 )]
+position = Vector2( 179, 288 )
+
+[node name="Player" parent="." groups=[
+"player",
+] instance=ExtResource( 4 )]
+position = Vector2( 68.6981, 386.38 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+offset = Vector2( 0, -16 )
+current = true
+zoom = Vector2( 0.5, 0.5 )
+[connection signal="button_up" from="UI/BtnNextWeek" to="." method="_on_BtnNextWeek_button_up"]
