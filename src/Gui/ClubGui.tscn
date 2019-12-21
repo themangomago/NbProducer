@@ -16,3 +16,12 @@ position = Vector2( 0, -2 )
 scale = Vector2( 1, 0.890164 )
 texture = ExtResource( 2 )
 centered = false
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 349.0
+margin_top = 332.0
+margin_right = 605.0
+margin_bottom = 528.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
