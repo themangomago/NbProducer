@@ -37,7 +37,7 @@ func _ready():
 	
 	$UI.connectClub($Club)
 	
-	$Player.connectUI($UI)
+	$Level/Player.connectUI($UI)
 
 	#TODO
 	newGame()
@@ -73,6 +73,10 @@ func performAction(type):
 			nextWeek()
 		Types.Target.Newspaper:
 			$UI.showNewspaper()
+		Types.Target.GoUp:
+			$Level/Player.position = $Level/Staircase/StairWayUpper.global_position
+		Types.Target.GoDown:
+			$Level/Player.position = $Level/Staircase/StairWayCellar.global_position
 
 
 

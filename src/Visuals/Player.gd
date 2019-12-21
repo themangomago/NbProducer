@@ -9,8 +9,16 @@ var velocity = Vector2(0,0)
 var target = null
 var UI = null
 
+enum AnimState {Idle, Walk}
+
+var animState = null
+
+
 func connectUI(node):
 	UI = node
+
+func _ready():
+	processAnimState(AnimState.Idle)
 
 func _physics_process(delta):
 	
@@ -27,20 +35,42 @@ func _physics_process(delta):
 			velocity.x = max(velocity.x - stopForce, 0)
 		elif velocity.x < 0:
 			velocity.x = min(velocity.x + stopForce, 0)
+		elif velocity.x == 0:
+			processAnimState(AnimState.Idle)
 	# Accelarete
 	else:
 		velocity.x += inputDirection.x * delta * WALK_FORCE
 		if velocity.x > MAX_SPEED:
 			velocity.x = MAX_SPEED
+			direction(Types.Direction.Right)
 		elif velocity.x < -MAX_SPEED:
 			velocity.x = -MAX_SPEED
-
+			direction(Types.Direction.Left)
+		processAnimState(AnimState.Walk)
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 
 
 	if target != null and Input.is_action_just_pressed("ui_up"):
 		print("pressed")
 		Global.GI.performAction(target)
+
+func direction(dir):
+	if dir == Types.Direction.Left:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
+
+func processAnimState(anim):
+	match anim:
+		AnimState.Idle:
+			if animState != AnimState.Idle:
+				animState = AnimState.Idle
+				$AnimationPlayer.play("idle")
+		AnimState.Walk:
+			if animState != AnimState.Walk:
+				animState = AnimState.Walk
+				$AnimationPlayer.play("walk")
+			
 
 
 func getInputDirection():
