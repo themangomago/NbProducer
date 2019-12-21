@@ -67,7 +67,6 @@ func scoutClub(id):
 
 
 func performAction(type):
-	print("perform")
 	match type:
 		Types.Target.NextWeek:
 			nextWeek()

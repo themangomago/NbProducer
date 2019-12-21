@@ -51,7 +51,6 @@ func _physics_process(delta):
 
 
 	if target != null and Input.is_action_just_pressed("ui_up"):
-		print("pressed")
 		Global.GI.performAction(target)
 
 func direction(dir):
@@ -84,5 +83,9 @@ func getInputDirection():
 func setTarget(trg):
 	target = trg
 	
-func unsetTarget():
-	target = null
+func unsetTarget(check = null):
+	if check:
+		if target == check:
+			target = null
+	else:
+		target = null

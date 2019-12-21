@@ -77,7 +77,7 @@ zoom = Vector2( 0.5, 0.5 )
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 140.718, 239.769 )
+position = Vector2( 147, 243 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 393.881, 147.611 )
