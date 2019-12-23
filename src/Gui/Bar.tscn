@@ -16,8 +16,8 @@ __meta__ = {
 [node name="ProgressBar" type="TextureProgress" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-step = 1.0
-value = 50.0
+max_value = 10.0
+value = 5.0
 texture_under = ExtResource( 2 )
 texture_over = ExtResource( 3 )
 texture_progress = ExtResource( 1 )

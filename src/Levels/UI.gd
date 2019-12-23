@@ -30,3 +30,9 @@ func showClub(id):
 	closeActive()
 	$ClubGui.setArtist(Club.get_child(id))
 	setActive($ClubGui)
+
+func showNegotiation(talent):
+	closeActive()
+	$NegotiationGui.setArtist(talent)
+	setActive($NegotiationGui)
+	

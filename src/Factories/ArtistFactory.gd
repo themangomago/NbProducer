@@ -17,7 +17,7 @@ func newSinger():
 		"charisma": randi()%10 + 1,
 		"motivation": randi()%10 + 1,
 		"talent": randi()%10 + 1,
-		"popularity": randi()%10 + 1,
+		"popularity": randi()%4 + 1,
 	}
 	
 	var skills = {

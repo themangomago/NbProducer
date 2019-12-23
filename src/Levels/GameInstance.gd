@@ -9,7 +9,8 @@ var actionPoints = 20
 
 
 
-const AP_COST_VISIT_CONCERT = 4
+const AP_COST_VISIT_CONCERT = 5
+const AP_COST_NEGOTIATION = 3
 
 #Temp
 var selectedScoutedArtist = 0
@@ -65,6 +66,10 @@ func scoutClub(id):
 			selectedScoutedArtist = id
 			actionPoints -= AP_COST_VISIT_CONCERT
 
+func negotiateTalent(talent):
+	if actionPoints >= AP_COST_VISIT_CONCERT:
+		$UI.showNegotiation(talent)
+		actionPoints -= AP_COST_VISIT_CONCERT
 
 func performAction(type):
 	match type:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Gui/ClubGui.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/gui/club.png" type="Texture" id=2]
+[ext_resource path="res://src/Gui/Bar.tscn" type="PackedScene" id=3]
 
 [node name="ClubGui" type="Control"]
 anchor_right = 1.0
@@ -17,11 +18,54 @@ scale = Vector2( 1, 0.890164 )
 texture = ExtResource( 2 )
 centered = false
 
+[node name="BtnClose" type="Button" parent="."]
+margin_left = 924.011
+margin_top = 6.58813
+margin_right = 943.011
+margin_bottom = 26.5881
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Panel" type="Panel" parent="."]
 margin_left = 349.0
 margin_top = 332.0
 margin_right = 605.0
 margin_bottom = 528.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Atmosphere" parent="Panel" instance=ExtResource( 3 )]
+margin_left = 9.56885
+margin_top = 60.5504
+margin_right = 249.569
+margin_bottom = 84.5504
+
+[node name="Popularity" parent="Panel" instance=ExtResource( 3 )]
+margin_left = 10.1376
+margin_top = 100.366
+margin_right = 250.138
+margin_bottom = 124.366
+
+[node name="Label" type="Label" parent="Panel"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 248.0
+margin_bottom = 46.0
+text = "Name , w 24
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Panel"]
+margin_left = 13.0
+margin_top = 151.0
+margin_right = 246.0
+margin_bottom = 171.0
+text = "Negotiate Contract"
+[connection signal="button_up" from="BtnClose" to="." method="_on_BtnClose_button_up"]
+[connection signal="button_up" from="Panel/Button" to="." method="_on_Button_button_up"]
