@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/art/gui/contract.png" type="Texture" id=1]
 [ext_resource path="res://src/Gui/NegotiationGui.gd" type="Script" id=2]
+[ext_resource path="res://src/Gui/Bar.tscn" type="PackedScene" id=3]
 
 [node name="NegotiationGui" type="Control"]
 anchor_right = 1.0
@@ -15,3 +16,184 @@ __meta__ = {
 scale = Vector2( 0.998904, 0.884383 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="IdCard" type="Panel" parent="."]
+margin_left = 158.0
+margin_top = 86.0
+margin_right = 441.0
+margin_bottom = 235.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelName" type="Label" parent="IdCard"]
+margin_left = 130.45
+margin_top = 30.3
+margin_right = 253.45
+margin_bottom = 57.3
+text = "Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelAge" type="Label" parent="IdCard"]
+margin_left = 130.45
+margin_top = 62.6
+margin_right = 253.45
+margin_bottom = 89.6
+text = "24"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelGender" type="Label" parent="IdCard"]
+margin_left = 132.35
+margin_top = 105.35
+margin_right = 255.35
+margin_bottom = 132.35
+text = "w"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Notes" type="Panel" parent="."]
+margin_left = 161.0
+margin_top = 256.0
+margin_right = 426.0
+margin_bottom = 534.0
+
+[node name="Atmosphere" parent="Notes" instance=ExtResource( 3 )]
+margin_left = 14.0
+margin_top = 33.0
+margin_right = 254.0
+margin_bottom = 57.0
+
+[node name="Popularity" parent="Notes" instance=ExtResource( 3 )]
+margin_left = 13.0
+margin_top = 77.0
+margin_right = 253.0
+margin_bottom = 101.0
+
+[node name="Random1" parent="Notes" instance=ExtResource( 3 )]
+margin_left = 11.0
+margin_top = 124.0
+margin_right = 251.0
+margin_bottom = 148.0
+
+[node name="Random2" parent="Notes" instance=ExtResource( 3 )]
+margin_left = 11.0
+margin_top = 174.0
+margin_right = 251.0
+margin_bottom = 198.0
+
+[node name="Contract" type="Panel" parent="."]
+modulate = Color( 1, 1, 1, 0.905882 )
+margin_left = 462.0
+margin_top = 101.0
+margin_right = 796.0
+margin_bottom = 532.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Contract" type="Label" parent="Contract"]
+margin_left = 36.0
+margin_top = 32.0
+margin_right = 150.0
+margin_bottom = 53.0
+text = "Contract"
+
+[node name="Albums" type="Label" parent="Contract"]
+margin_left = 32.0
+margin_top = 132.0
+margin_right = 146.0
+margin_bottom = 153.0
+text = "Albums"
+
+[node name="Artist" type="Label" parent="Contract/Albums"]
+margin_left = 152.0
+margin_top = -3.0
+margin_right = 192.0
+margin_bottom = 11.0
+text = "2"
+
+[node name="You" type="Label" parent="Contract/Albums"]
+margin_left = 243.122
+margin_top = -4.70752
+margin_right = 283.122
+margin_bottom = 9.29248
+text = "2"
+
+[node name="Dec" type="Button" parent="Contract/Albums"]
+anchor_right = 0.412
+margin_left = 217.503
+margin_top = -9.92749
+margin_right = 182.535
+margin_bottom = 10.0725
+text = "-"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Inc" type="Button" parent="Contract/Albums"]
+anchor_right = 0.412
+margin_left = 263.53
+margin_top = -9.92749
+margin_right = 233.562
+margin_bottom = 10.0725
+text = "+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Money" type="Label" parent="Contract"]
+margin_left = 28.0
+margin_top = 193.0
+margin_right = 142.0
+margin_bottom = 224.0
+text = "Money/Week
+"
+
+[node name="Artist" type="Label" parent="Contract/Money"]
+margin_left = 149.815
+margin_right = 189.815
+margin_bottom = 14.0
+text = "300"
+
+[node name="You" type="Label" parent="Contract/Money"]
+margin_left = 239.163
+margin_top = -0.902496
+margin_right = 279.163
+margin_bottom = 13.0975
+text = "300"
+
+[node name="Dec" type="Button" parent="Contract/Money"]
+margin_left = 221.546
+margin_top = -5.70157
+margin_right = 233.546
+margin_bottom = 14.2984
+text = "-"
+
+[node name="Inc" type="Button" parent="Contract/Money"]
+margin_left = 277.747
+margin_top = -5.70157
+margin_right = 297.747
+margin_bottom = 14.2984
+text = "+"
+
+[node name="Bar" parent="Contract" instance=ExtResource( 3 )]
+margin_left = 37.0
+margin_top = 288.0
+margin_right = 277.0
+margin_bottom = 312.0
+
+[node name="Button" type="Button" parent="Contract"]
+margin_left = 54.0
+margin_top = 360.0
+margin_right = 253.0
+margin_bottom = 393.0
+text = "Negotiate"
+[connection signal="button_up" from="Contract/Albums/Dec" to="." method="_Album_on_Dec_button_up"]
+[connection signal="button_up" from="Contract/Albums/Inc" to="." method="_Album_on_Inc_button_up"]
+[connection signal="button_up" from="Contract/Money/Dec" to="." method="_Salary_on_Dec_button_up"]
+[connection signal="button_up" from="Contract/Money/Inc" to="." method="_Salary_on_Inc_button_up"]
