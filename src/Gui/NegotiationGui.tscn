@@ -187,7 +187,7 @@ margin_top = 288.0
 margin_right = 277.0
 margin_bottom = 312.0
 
-[node name="Button" type="Button" parent="Contract"]
+[node name="BtnNegotiate" type="Button" parent="Contract"]
 margin_left = 54.0
 margin_top = 360.0
 margin_right = 253.0
@@ -197,3 +197,4 @@ text = "Negotiate"
 [connection signal="button_up" from="Contract/Albums/Inc" to="." method="_Album_on_Inc_button_up"]
 [connection signal="button_up" from="Contract/Money/Dec" to="." method="_Salary_on_Dec_button_up"]
 [connection signal="button_up" from="Contract/Money/Inc" to="." method="_Salary_on_Inc_button_up"]
+[connection signal="button_up" from="Contract/BtnNegotiate" to="." method="_on_BtnNegotiate_button_up"]
