@@ -3,6 +3,8 @@ extends CanvasLayer
 var Club = null
 
 var activeDisplay = null
+var lastUpdateOnWeek = 0
+
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -23,7 +25,9 @@ func setActive(node):
 func showNewspaper():
 	assert(Club != null)
 	closeActive()
-	$NewspaperGui.setArtists(Club.get_child(0).character.name, Club.get_child(1).character.name, Club.get_child(2).character.name)
+	if lastUpdateOnWeek < Global.GI.Week.week:
+		$NewspaperGui.setArtists(Club.get_child(0).character.name, Club.get_child(1).character.name, Club.get_child(2).character.name)
+		lastUpdateOnWeek = Global.GI.Week.week
 	setActive($NewspaperGui)
 
 func showClub(id):

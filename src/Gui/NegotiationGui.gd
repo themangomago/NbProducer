@@ -108,9 +108,21 @@ func _Salary_on_Inc_button_up():
 	$Contract/Money/You.set_text(str(salary))
 
 
+
+#var contract = {
+#	"signed": false,
+#	"duration": 0,
+#	"relationship": 0,
+#	"salary": 0
+#}
+
 func _on_BtnNegotiate_button_up():
 	if signed:
-		print("sign")
+		talentNode.contract.signed = true
+		talentNode.contract.duration = albums
+		talentNode.contract.relationship = min(happiness + 2, 10)
+		talentNode.contract.salary = salary
+		Global.GI.hireTalent(talentNode)
 		return
 		
 	if albums != artistAlbums:

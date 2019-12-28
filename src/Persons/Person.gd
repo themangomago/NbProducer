@@ -22,13 +22,10 @@ var character = {
 var contract = {
 	"signed": false,
 	"duration": 0,
-	"relationship": 0
+	"relationship": 0,
+	"salary": 0
 }
 
-#TODO: bonus modifications
-var bonus = {
-	
-}
 
 
 func createPerson(pName, age, gender, skills, charisma, motivation, talent, popularity):

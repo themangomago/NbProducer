@@ -44,8 +44,7 @@ func _ready():
 	newGame()
 
 func _physics_process(delta):
-	pass
-	#$CanvasLayer/Label.set_text("Week: "+ str(Week.week) + " $" + str(Company.cash) + "  AP:" + str(actionPoints))
+	$UI/Label.set_text("Week: "+ str(Week.week) + " $" + str(Company.cash) + "  AP:" + str(actionPoints))
 
 func nextWeek():
 	Week.newWeek()
@@ -70,6 +69,10 @@ func negotiateTalent(talent):
 	if actionPoints >= AP_COST_VISIT_CONCERT:
 		$UI.showNegotiation(talent)
 		actionPoints -= AP_COST_VISIT_CONCERT
+
+func hireTalent(talent):
+	$Club.remove_child(talent)
+	$Company.add_child(talent)
 
 func performAction(type):
 	match type:
