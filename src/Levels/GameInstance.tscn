@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://src/Visuals/Rooms/TV.tscn" type="PackedScene" id=15]
 [ext_resource path="res://src/Visuals/Rooms/Log.tscn" type="PackedScene" id=16]
 [ext_resource path="res://src/Gui/NegotiationGui.tscn" type="PackedScene" id=17]
+[ext_resource path="res://src/Gui/Week.tscn" type="PackedScene" id=18]
 
 [node name="GameInstance" type="Control"]
 anchor_right = 1.0
@@ -64,6 +65,9 @@ visible = false
 visible = false
 
 [node name="NegotiationGui" parent="UI" instance=ExtResource( 17 )]
+visible = false
+
+[node name="Week" parent="UI" instance=ExtResource( 18 )]
 visible = false
 
 [node name="Level" type="Node2D" parent="."]

@@ -193,8 +193,18 @@ margin_top = 360.0
 margin_right = 253.0
 margin_bottom = 393.0
 text = "Negotiate"
+
+[node name="BtnClose" type="Button" parent="."]
+anchor_right = 0.02
+anchor_bottom = 0.019
+margin_left = 924.348
+margin_top = 11.4
+margin_right = 924.148
+margin_bottom = 21.14
+text = "x"
 [connection signal="button_up" from="Contract/Albums/Dec" to="." method="_Album_on_Dec_button_up"]
 [connection signal="button_up" from="Contract/Albums/Inc" to="." method="_Album_on_Inc_button_up"]
 [connection signal="button_up" from="Contract/Money/Dec" to="." method="_Salary_on_Dec_button_up"]
 [connection signal="button_up" from="Contract/Money/Inc" to="." method="_Salary_on_Inc_button_up"]
 [connection signal="button_up" from="Contract/BtnNegotiate" to="." method="_on_BtnNegotiate_button_up"]
+[connection signal="button_up" from="BtnClose" to="." method="_on_BtnClose_button_up"]

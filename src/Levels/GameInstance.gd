@@ -6,7 +6,7 @@ onready var playerNode = preload("res://src/Persons/Player.tscn")
 
 var player = null
 var actionPoints = 20
-
+var lockPlayer = false
 
 
 const AP_COST_VISIT_CONCERT = 5
@@ -17,7 +17,7 @@ var selectedScoutedArtist = 0
 
 
 var ArtistFactory = load("res://src/Factories/ArtistFactory.gd").new()
-var Week = load("res://src/Factories/WeekFactory.gd").new()
+
 onready var Company = $Company
 
 func _ready():
@@ -28,11 +28,11 @@ func _ready():
 	player.character.name = "Player"
 	add_child(player)
 
-	
-	Week.connectArtistFactory(ArtistFactory)
-	Week.connectTalentPool($TalentPool)
-	Week.connectClub($Club)
-	Week.connectCompany(Company)
+
+	$UI/Week.connectArtistFactory(ArtistFactory)
+	$UI/Week.connectTalentPool($TalentPool)
+	$UI/Week.connectClub($Club)
+	$UI/Week.connectCompany(Company)
 
 	Company.connectClub($Club)
 	
@@ -44,23 +44,24 @@ func _ready():
 	newGame()
 
 func _physics_process(delta):
-	$UI/Label.set_text("Week: "+ str(Week.week) + " $" + str(Company.cash) + "  AP:" + str(actionPoints))
+	$UI/Label.set_text("Week: "+ str($UI/Week.week) + " $" + str(Company.cash) + "  AP:" + str(actionPoints))
 
 func nextWeek():
-	Week.newWeek()
+
+	$UI/Week.newWeek()
 	
 
 func newGame():
-	Week.newGame()
+	$UI/Week.newGame()
 
 
 
 ## DUMMY FUNCTIONS
 
 func scoutClub(id):
-	if not Week.playerHasVisitedClubThisWeek:
+	if not $UI/Week.playerHasVisitedClubThisWeek:
 		if actionPoints >= AP_COST_VISIT_CONCERT:
-			Week.playerHasVisitedClubThisWeek = true
+			$UI/Week.playerHasVisitedClubThisWeek = true
 			$UI.showClub(id)
 			selectedScoutedArtist = id
 			actionPoints -= AP_COST_VISIT_CONCERT

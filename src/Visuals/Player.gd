@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const STOP_FORCE_FLOOR = 700
 const WALK_FORCE = 1600
-const MAX_SPEED = 120
+const MAX_SPEED = 160
 
 var velocity = Vector2(0,0)
 
@@ -21,6 +21,8 @@ func _ready():
 	processAnimState(AnimState.Idle)
 
 func _physics_process(delta):
+	if get_parent().get_parent().lockPlayer:
+		return
 	
 	if UI.activeDisplay:
 		return
@@ -52,6 +54,7 @@ func _physics_process(delta):
 
 	if target != null and Input.is_action_just_pressed("ui_up"):
 		Global.GI.performAction(target)
+		processAnimState(AnimState.Idle)
 
 func direction(dir):
 	if dir == Types.Direction.Left:

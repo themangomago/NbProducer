@@ -123,6 +123,7 @@ func _on_BtnNegotiate_button_up():
 		talentNode.contract.relationship = min(happiness + 2, 10)
 		talentNode.contract.salary = salary
 		Global.GI.hireTalent(talentNode)
+		_on_BtnClose_button_up()
 		return
 		
 	if albums != artistAlbums:
@@ -159,3 +160,7 @@ func _on_BtnNegotiate_button_up():
 		
 
 	updateNegotiation()
+
+
+func _on_BtnClose_button_up():
+	get_parent().closeActive()

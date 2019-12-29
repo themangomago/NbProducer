@@ -1,10 +1,9 @@
-extends Node
+extends Control
 
 
 
 var playerHasVisitedClubThisWeek = false
 var week = 0
-
 
 # Intern
 var ArtistFactory = null
@@ -47,10 +46,20 @@ func clubWeek():
 
 
 func newWeek():
+	self.show()
+	get_parent().get_parent().lockPlayer = true
+	Company.newWeek()
 	clubWeek()
 	playerHasVisitedClubThisWeek = false
+	
+	$CalendarSheetDynamic/Label.set_text("Week "+ str(week))
 	week += 1
-	Company.newWeek()
+	$CalendarSheetStatic/Label.set_text("Week "+ str(week))
+	
+	$AnimationPlayer.play("week")
+	
+	
+
 
 
 func newGame():
@@ -59,3 +68,8 @@ func newGame():
 		TalentPool.add_child(ArtistFactory.newSinger())
 	
 	newWeek()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	get_parent().get_parent().lockPlayer = false
+	self.hide()
