@@ -1,7 +1,5 @@
 extends Node
 
-var cash = 10000
-
 var Club = null
 
 func _ready():
@@ -11,11 +9,12 @@ func connectClub(node):
 	Club = node
 
 func newWeek():
-	var expanses = 120
+	var expanses = 0
 	for artist in self.get_children():
 		expanses += artist.contract.salary
 
-	cash -= expanses
+	Global.GI.Balance.addPositionExpenses("Contracts", expanses)
+
 
 func hireNewArtist(id):
 	print("hireNewArtist")

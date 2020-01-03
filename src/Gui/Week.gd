@@ -49,6 +49,8 @@ func newWeek():
 	self.show()
 	get_parent().get_parent().lockPlayer = true
 	Company.newWeek()
+	
+	Global.GI.Balance.newWeek()
 	clubWeek()
 	playerHasVisitedClubThisWeek = false
 	
@@ -56,7 +58,8 @@ func newWeek():
 	week += 1
 	$CalendarSheetStatic/Label.set_text("Week "+ str(week))
 	
-	$AnimationPlayer.play("week")
+	if week != 1:
+		$AnimationPlayer.play("week")
 	
 	
 

@@ -18,7 +18,11 @@ var selectedScoutedArtist = 0
 
 var ArtistFactory = load("res://src/Factories/ArtistFactory.gd").new()
 
+
+onready var Week = $UI/Week
 onready var Company = $Company
+onready var Notification = $UI/Notification
+onready var Balance = $UI/BalanceGui
 
 func _ready():
 	Global.GI = self
@@ -44,7 +48,7 @@ func _ready():
 	newGame()
 
 func _physics_process(delta):
-	$UI/Label.set_text("Week: "+ str($UI/Week.week) + " $" + str(Company.cash) + "  AP:" + str(actionPoints))
+	$UI/Label.set_text("Week: "+ str($UI/Week.week) + " $" + str(Balance.cash) + "  AP:" + str(actionPoints))
 
 func nextWeek():
 
@@ -74,6 +78,7 @@ func negotiateTalent(talent):
 func hireTalent(talent):
 	$Club.remove_child(talent)
 	$Company.add_child(talent)
+	Notification.notify("Talent hired: " + talent.character.name)
 
 func performAction(type):
 	match type:

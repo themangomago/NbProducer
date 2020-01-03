@@ -1,0 +1,62 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Gui/BalanceGui.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/gui/balancesheet.png" type="Texture" id=2]
+
+[node name="BalanceGui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 190, 21 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="BtnClose" type="Button" parent="."]
+margin_left = 898.0
+margin_top = 13.0
+margin_right = 917.0
+margin_bottom = 33.0
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RevLabel" type="Label" parent="."]
+margin_left = 220.0
+margin_top = 135.0
+margin_right = 420.0
+margin_bottom = 347.0
+
+[node name="ExpLabel" type="Label" parent="."]
+margin_left = 453.0
+margin_top = 132.0
+margin_right = 653.0
+margin_bottom = 344.0
+
+[node name="SumRev" type="Label" parent="."]
+margin_left = 250.0
+margin_top = 378.0
+margin_right = 425.0
+margin_bottom = 407.0
+
+[node name="SumExp" type="Label" parent="."]
+margin_left = 468.0
+margin_top = 383.0
+margin_right = 643.0
+margin_bottom = 412.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cash" type="Label" parent="."]
+margin_left = 437.0
+margin_top = 462.0
+margin_right = 612.0
+margin_bottom = 491.0
+[connection signal="button_up" from="BtnClose" to="." method="_on_BtnClose_button_up"]
