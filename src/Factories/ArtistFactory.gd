@@ -31,5 +31,5 @@ func newSinger():
 	}
 	   #createPerson(pName, age, gender, skills, charisma, motivation, talent, popularity)
 	new.createPerson(id.name, min(18, randi()%100 + 1), id.gender, skills, data.charisma, data.motivation, data.talent, data.popularity)
-	print(Data.calculateSalary(new))
+	#print(Data.calculateSalary(new))
 	return new

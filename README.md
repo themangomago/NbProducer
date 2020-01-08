@@ -2,7 +2,7 @@
 
 
 # WP1
-- [ ] Bilance
+- [x] Bilance
 - [ ] Compose
 
 # WP2

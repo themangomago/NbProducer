@@ -48,6 +48,7 @@ func updateGui():
 
 	var vSongNode = null
 	var songs = Global.GI.getSongs()
+	var totalLength = 0
 	for song in songs.get_children():
 		vSongNode = vSongScene.instance()
 		#setup(node, title, rating, onAlbum)
@@ -55,9 +56,12 @@ func updateGui():
 		
 		if song.data.onAlbum:
 			$VBoxAlbum.add_child(vSongNode)
+			totalLength += song.data.duration
 		else:
 			$VBoxSongs.add_child(vSongNode)
 
+
+	$LLength.set_text("Total Length:" + str(int(totalLength/60)) + ":%0*d" % [2, totalLength - int(totalLength/60)*60])
 
 
 func switchRecordButton(to):

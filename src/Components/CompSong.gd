@@ -10,11 +10,15 @@ func setup(node):
 	
 	if node.data.ready:
 		$LRating.set_text("R:" + str(node.data.quality))
-		$LLength.set_text("L:" + str(node.data.duration))
+		
+		print(node.data.duration)
+		var duration =  str(int(node.data.duration/60)) + ":%0*d" % [2, node.data.duration - int(node.data.duration/60)*60]
+		$LLength.set_text("L:" + duration)
 	else:
 		$LRating.set_text("R: ?")
 		$LLength.set_text("L: ?")
 		$BtnToAlbum.disabled = true
+		$BtnDelete.disabled = true
 	assignedNode = node
 	
 
