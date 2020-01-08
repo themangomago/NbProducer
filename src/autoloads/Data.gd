@@ -3,6 +3,9 @@ extends Node
 
 var counter = 1
 
+const AP_COST_VISIT_CONCERT = 5
+const AP_COST_NEGOTIATION = 3
+const AP_COST_COMPOSE = 10
 
 func generateNameAndGender():
 	var gName = "Test"+str(counter)

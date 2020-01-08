@@ -27,7 +27,6 @@ var contract = {
 }
 
 
-
 func createPerson(pName, age, gender, skills, charisma, motivation, talent, popularity):
 	character.name = pName
 	character.age = age
@@ -44,7 +43,7 @@ func createPerson(pName, age, gender, skills, charisma, motivation, talent, popu
 	character.skills.texter = skills.texter
 	character.skills.mixer = skills.mixer
 	
-	print("Created: " + str(character.name) + "\n" + str(character) )
+	#print("Created: " + str(character.name) + "\n" + str(character) )
 	
 
 

@@ -9,8 +9,7 @@ var actionPoints = 20
 var lockPlayer = false
 
 
-const AP_COST_VISIT_CONCERT = 5
-const AP_COST_NEGOTIATION = 3
+
 
 #Temp
 var selectedScoutedArtist = 0
@@ -51,8 +50,8 @@ func _physics_process(delta):
 	$UI/Label.set_text("Week: "+ str($UI/Week.week) + " $" + str(Balance.cash) + "  AP:" + str(actionPoints))
 
 func nextWeek():
-
-	$UI/Week.newWeek()
+	actionPoints = 20
+	$UI.newWeek()
 	
 
 func newGame():
@@ -64,21 +63,24 @@ func newGame():
 
 func scoutClub(id):
 	if not $UI/Week.playerHasVisitedClubThisWeek:
-		if actionPoints >= AP_COST_VISIT_CONCERT:
+		if actionPoints >= Data.AP_COST_VISIT_CONCERT:
 			$UI/Week.playerHasVisitedClubThisWeek = true
 			$UI.showClub(id)
 			selectedScoutedArtist = id
-			actionPoints -= AP_COST_VISIT_CONCERT
+			actionPoints -= Data.AP_COST_VISIT_CONCERT
 
 func negotiateTalent(talent):
-	if actionPoints >= AP_COST_VISIT_CONCERT:
+	if actionPoints >= Data.AP_COST_VISIT_CONCERT:
 		$UI.showNegotiation(talent)
-		actionPoints -= AP_COST_VISIT_CONCERT
+		actionPoints -= Data.AP_COST_VISIT_CONCERT
 
 func hireTalent(talent):
 	$Club.remove_child(talent)
 	$Company.add_child(talent)
 	Notification.notify("Talent hired: " + talent.character.name)
+
+func notify(string):
+	Notification.notify(string)
 
 func performAction(type):
 	match type:
@@ -90,8 +92,25 @@ func performAction(type):
 			$Level/Player.position = $Level/Staircase/StairWayUpper.global_position
 		Types.Target.GoDown:
 			$Level/Player.position = $Level/Staircase/StairWayCellar.global_position
+		Types.Target.Balance:
+			$UI.showBalance()
+		Types.Target.Compose:
+			$UI.showCompose()
+		_:
+			print("Unhandled Action")
 
 
+func getTalentPool():
+	return $TalentPool
+
+func getCompany():
+	return $Company
+
+func getPlayer():
+	return $Player
+
+func getSongs():
+	return $Songs
 
 func _on_BtnNextWeek_button_up():
 	nextWeek()

@@ -40,3 +40,20 @@ func showNegotiation(talent):
 	$NegotiationGui.setArtist(talent)
 	setActive($NegotiationGui)
 	
+func showBalance():
+	closeActive()
+	setActive($BalanceGui)
+
+func showCompose():
+	closeActive()
+	$ComposeGui.updateGui()
+	setActive($ComposeGui)
+
+func newWeek():
+	closeActive()
+	setActive($Week)
+	$Week.newWeek()
+	$ComposeGui.newWeek()
+	
+func _on_BtnClose_button_up():
+	closeActive()

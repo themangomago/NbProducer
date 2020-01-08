@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://src/Gui/ClubGui.tscn" type="PackedScene" id=9]
 [ext_resource path="res://src/Visuals/Rooms/Staircase.tscn" type="PackedScene" id=10]
 [ext_resource path="res://src/Visuals/Rooms/Compose.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/Visuals/Rooms/Bilanz.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Visuals/Rooms/Balance.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/Visuals/Rooms/Plan.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Visuals/Rooms/Phone.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/Visuals/Rooms/TV.tscn" type="PackedScene" id=15]
@@ -20,6 +20,8 @@
 [ext_resource path="res://src/Gui/Week.tscn" type="PackedScene" id=18]
 [ext_resource path="res://src/Gui/Notification.tscn" type="PackedScene" id=19]
 [ext_resource path="res://src/Gui/BalanceGui.tscn" type="PackedScene" id=20]
+[ext_resource path="res://src/Gui/ComposeGui.tscn" type="PackedScene" id=21]
+[ext_resource path="res://src/Persons/Player.tscn" type="PackedScene" id=22]
 
 [node name="GameInstance" type="Control"]
 anchor_right = 1.0
@@ -33,6 +35,12 @@ __meta__ = {
 [node name="TalentPool" type="Node" parent="."]
 
 [node name="Club" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource( 22 )]
+
+[node name="Songs" type="Node" parent="."]
+
+[node name="Albums" type="Node" parent="."]
 
 [node name="Company" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -50,10 +58,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BalanceGui" parent="UI" instance=ExtResource( 20 )]
-visible = false
-
-[node name="NewspaperGui" parent="UI" instance=ExtResource( 8 )]
+[node name="Week" parent="UI" instance=ExtResource( 18 )]
 visible = false
 
 [node name="ClubGui" parent="UI" instance=ExtResource( 9 )]
@@ -62,7 +67,13 @@ visible = false
 [node name="NegotiationGui" parent="UI" instance=ExtResource( 17 )]
 visible = false
 
-[node name="Week" parent="UI" instance=ExtResource( 18 )]
+[node name="NewspaperGui" parent="UI" instance=ExtResource( 8 )]
+visible = false
+
+[node name="BalanceGui" parent="UI" instance=ExtResource( 20 )]
+visible = false
+
+[node name="ComposeGui" parent="UI" instance=ExtResource( 21 )]
 visible = false
 
 [node name="Notification" parent="UI" instance=ExtResource( 19 )]
@@ -73,6 +84,16 @@ margin_top = 6.0
 margin_right = 366.0
 margin_bottom = 26.0
 text = "Next Week"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnClose" type="Button" parent="UI"]
+margin_left = 464.0
+margin_top = 5.0
+margin_right = 494.0
+margin_bottom = 25.0
+text = "x"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -121,3 +142,4 @@ position = Vector2( 69, 148 )
 [node name="Log" parent="Level" instance=ExtResource( 16 )]
 position = Vector2( 157, 148 )
 [connection signal="button_up" from="UI/BtnNextWeek" to="." method="_on_BtnNextWeek_button_up"]
+[connection signal="button_up" from="UI/BtnClose" to="UI" method="_on_BtnClose_button_up"]

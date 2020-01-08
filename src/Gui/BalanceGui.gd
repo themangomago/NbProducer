@@ -16,16 +16,16 @@ func _ready():
 func addPositionExpenses(position, expanses):
 	expenses.append({"position": position, "amount": expanses})
 
-
 func addPositionRevenue(position, expanses):
 	revenues.append({"position": position, "amount": expanses})
-
 
 
 func newWeek():
 	var label = ""
 	var sumRev = 0
 	var sumExp = 0
+	
+	addPositionExpenses("Rent", 300)
 
 	for i in range(expenses.size()):
 		label += expenses[i].position + " " + str(expenses[i].amount) + "\n"
@@ -37,9 +37,14 @@ func newWeek():
 	for i in range(revenues.size()):
 		label += revenues[i].position + " " + str(revenues[i].amount) + "\n"
 		sumRev += revenues[i].amount
-	$ExpLabel.set_text(label)
+	$RevLabel.set_text(label)
 	$SumRev.set_text(str(sumRev))
-	$Cash.set_text(str(cash + sumRev - sumExp))
+	
+	cash = cash + sumRev - sumExp
+	$Cash.set_text(str(cash))
+	
+	revenues.clear()
+	expenses.clear()
 
 func _on_BtnClose_button_up():
 	get_parent().closeActive()

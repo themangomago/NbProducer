@@ -7,4 +7,4 @@ enum GameStates {Menu, Game, Settings}
 enum Factory {Artist, Week}
 
 
-enum Target {NextWeek, Newspaper, GoUp, GoDown, Bilanz, Compose, Plan, Log, Phone, TV}
+enum Target {NextWeek, Newspaper, GoUp, GoDown, Balance, Compose, Plan, Log, Phone, TV}

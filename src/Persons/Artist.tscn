@@ -2,5 +2,7 @@
 
 [ext_resource path="res://src/Persons/Artist.gd" type="Script" id=1]
 
-[node name="Artist" type="Node"]
+[node name="Artist" type="Node" groups=[
+"artist",
+]]
 script = ExtResource( 1 )

@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Components/CompSong.gd" type="Script" id=1]
+
+[node name="CompSong" type="Control"]
+margin_right = 320.0
+margin_bottom = 32.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 32.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LSong" type="Label" parent="."]
+margin_left = 32.0
+margin_top = 10.0
+margin_right = 205.0
+margin_bottom = 26.0
+text = "Song Label"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LRating" type="Label" parent="."]
+margin_left = 191.0
+margin_top = 11.0
+margin_right = 211.0
+margin_bottom = 42.0
+text = "5
+"
+
+[node name="LLength" type="Label" parent="."]
+margin_left = 252.0
+margin_top = 11.0
+margin_right = 276.0
+margin_bottom = 42.0
+text = "5
+"
+
+[node name="BtnToAlbum" type="Button" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 23.0
+margin_bottom = 26.0
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnDelete" type="Button" parent="."]
+margin_left = 283.0
+margin_top = 7.0
+margin_right = 303.0
+margin_bottom = 27.0
+text = "RM"
+[connection signal="button_up" from="BtnToAlbum" to="." method="_on_BtnToAlbum_button_up"]
+[connection signal="button_up" from="BtnDelete" to="." method="_on_BtnDelete_button_up"]
