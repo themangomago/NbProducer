@@ -1,7 +1,9 @@
 extends Control
 
 
+var credits = [{"amount": 10000, "rate": 5, "week": 0}]
 var cash = 10000
+
 
 var expenses = []
 var revenues = []

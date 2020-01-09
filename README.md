@@ -3,7 +3,7 @@
 
 # WP1
 - [x] Bilance
-- [ ] Compose
+- [x] Compose
 
 # WP2
 - [ ] Phone 

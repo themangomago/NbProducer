@@ -4,9 +4,14 @@ extends Control
 var artistNodes = []
 
 var song = null
+var totalLength = 0
 
 onready var songScene = preload("res://src/Songs/Song.tscn") 
 onready var vSongScene = preload("res://src/Components/CompSong.tscn")
+onready var albumScene = preload("res://src/Albums/Album.tscn")
+
+const BOUNDARY_TOP = 60 * 60
+const BOUNDARY_BOTTOM = 2 * 60
 
 func clear():
 	artistNodes.clear()
@@ -48,7 +53,7 @@ func updateGui():
 
 	var vSongNode = null
 	var songs = Global.GI.getSongs()
-	var totalLength = 0
+	totalLength = 0
 	for song in songs.get_children():
 		vSongNode = vSongScene.instance()
 		#setup(node, title, rating, onAlbum)
@@ -115,4 +120,35 @@ func _on_BtnNewSong_button_up():
 
 
 func _on_BtnRecord_button_up():
-	pass # Replace with function body.
+	print("TODO: check if production is already in progress")
+	if totalLength >= BOUNDARY_BOTTOM and totalLength <= BOUNDARY_TOP:
+		
+		var count = 0
+		var ratings = 0
+		var modifier = 1
+		var album = albumScene.instance()
+		var songs = Global.GI.getSongs()
+
+		for song in songs.get_children():
+			if song.data.onAlbum:
+				count += 1
+				ratings += song.data.quality
+				songs.remove_child(song)
+				album.add_child(song)
+		
+		if totalLength > 40:
+			modifier = 1.1
+		if totalLength > 50:
+			modifier = 1.2
+		
+		ratings = (ratings * modifier) / count
+		 
+		album.data.quality = ratings
+		album.data.duration = totalLength
+		album.data.title = $TeAlbumTitle.text
+		Global.GI.getAlbums().add_child(album)
+		updateGui()
+		Global.GI.notify("Album is ready for recording!")
+
+	else:
+		Global.GI.notify("Songs do not fit on LP!")

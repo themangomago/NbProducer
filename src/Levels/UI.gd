@@ -55,5 +55,8 @@ func newWeek():
 	$Week.newWeek()
 	$ComposeGui.newWeek()
 	
+func setInfo(week, cash, actionPoints):
+	$BottomUi.setInfo(week, cash, actionPoints)
+
 func _on_BtnClose_button_up():
 	closeActive()

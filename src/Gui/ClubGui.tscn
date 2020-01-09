@@ -13,7 +13,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 0, -2 )
+position = Vector2( 4, 4 )
 scale = Vector2( 1, 0.890164 )
 texture = ExtResource( 2 )
 centered = false
@@ -29,12 +29,11 @@ __meta__ = {
 }
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 349.0
-margin_top = 332.0
-margin_right = 605.0
-margin_bottom = 528.0
+margin_left = 350.0
+margin_top = 238.0
+margin_right = 606.0
+margin_bottom = 434.0
 __meta__ = {
-"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -58,6 +57,7 @@ margin_bottom = 46.0
 text = "Name , w 24
 "
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 
@@ -67,5 +67,8 @@ margin_top = 151.0
 margin_right = 246.0
 margin_bottom = 171.0
 text = "Negotiate Contract"
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="button_up" from="BtnClose" to="." method="_on_BtnClose_button_up"]
 [connection signal="button_up" from="Panel/Button" to="." method="_on_Button_button_up"]

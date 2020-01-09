@@ -47,7 +47,8 @@ func _ready():
 	newGame()
 
 func _physics_process(delta):
-	$UI/Label.set_text("Week: "+ str($UI/Week.week) + " $" + str(Balance.cash) + "  AP:" + str(actionPoints))
+	$UI.setInfo($UI/Week.week, Balance.cash, actionPoints)
+
 
 func nextWeek():
 	actionPoints = 20
@@ -111,6 +112,9 @@ func getPlayer():
 
 func getSongs():
 	return $Songs
+
+func getAlbums():
+	return $Albums
 
 func _on_BtnNextWeek_button_up():
 	nextWeek()

@@ -19,9 +19,9 @@ centered = false
 
 [node name="IdCard" type="Panel" parent="."]
 margin_left = 158.0
-margin_top = 86.0
+margin_top = -15.0
 margin_right = 441.0
-margin_bottom = 235.0
+margin_bottom = 134.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -58,9 +58,9 @@ __meta__ = {
 
 [node name="Notes" type="Panel" parent="."]
 margin_left = 161.0
-margin_top = 256.0
+margin_top = 155.0
 margin_right = 426.0
-margin_bottom = 534.0
+margin_bottom = 433.0
 
 [node name="Atmosphere" parent="Notes" instance=ExtResource( 3 )]
 margin_left = 14.0
@@ -89,9 +89,8 @@ margin_bottom = 198.0
 [node name="Contract" type="Panel" parent="."]
 modulate = Color( 1, 1, 1, 0.905882 )
 margin_left = 462.0
-margin_top = 101.0
 margin_right = 796.0
-margin_bottom = 532.0
+margin_bottom = 431.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -193,18 +192,8 @@ margin_top = 360.0
 margin_right = 253.0
 margin_bottom = 393.0
 text = "Negotiate"
-
-[node name="BtnClose" type="Button" parent="."]
-anchor_right = 0.02
-anchor_bottom = 0.019
-margin_left = 924.348
-margin_top = 11.4
-margin_right = 924.148
-margin_bottom = 21.14
-text = "x"
 [connection signal="button_up" from="Contract/Albums/Dec" to="." method="_Album_on_Dec_button_up"]
 [connection signal="button_up" from="Contract/Albums/Inc" to="." method="_Album_on_Inc_button_up"]
 [connection signal="button_up" from="Contract/Money/Dec" to="." method="_Salary_on_Dec_button_up"]
 [connection signal="button_up" from="Contract/Money/Inc" to="." method="_Salary_on_Inc_button_up"]
 [connection signal="button_up" from="Contract/BtnNegotiate" to="." method="_on_BtnNegotiate_button_up"]
-[connection signal="button_up" from="BtnClose" to="." method="_on_BtnClose_button_up"]

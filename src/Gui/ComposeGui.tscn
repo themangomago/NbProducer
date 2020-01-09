@@ -28,9 +28,9 @@ __meta__ = {
 
 [node name="BtnRecord" type="Button" parent="."]
 margin_left = 236.0
-margin_top = 473.0
+margin_top = 392.0
 margin_right = 382.0
-margin_bottom = 512.0
+margin_bottom = 431.0
 text = "Record Album"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -38,9 +38,9 @@ __meta__ = {
 
 [node name="BtnNewSong" type="Button" parent="."]
 margin_left = 615.0
-margin_top = 471.0
+margin_top = 390.0
 margin_right = 761.0
-margin_bottom = 510.0
+margin_bottom = 429.0
 text = "Create New Song"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -48,37 +48,47 @@ __meta__ = {
 
 [node name="OptWriter" type="OptionButton" parent="."]
 margin_left = 632.0
-margin_top = 290.0
+margin_top = 209.0
 margin_right = 796.0
-margin_bottom = 320.0
+margin_bottom = 239.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="OptMelody" type="OptionButton" parent="."]
 margin_left = 633.0
-margin_top = 364.0
+margin_top = 283.0
 margin_right = 797.0
-margin_bottom = 394.0
+margin_bottom = 313.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="TeSongTitle" type="TextEdit" parent="."]
 margin_left = 630.0
-margin_top = 427.0
+margin_top = 346.0
 margin_right = 797.0
-margin_bottom = 455.0
+margin_bottom = 374.0
 text = "Song Title"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TeAlbumTitle" type="TextEdit" parent="."]
+margin_left = 54.0
+margin_top = 394.0
+margin_right = 221.0
+margin_bottom = 422.0
+text = "Album Title"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxSongs" type="VBoxContainer" parent="."]
 margin_left = 494.0
-margin_top = 93.0
+margin_top = 12.0
 margin_right = 929.0
-margin_bottom = 274.0
+margin_bottom = 193.0
 rect_min_size = Vector2( 0, 64 )
 custom_constants/separation = 34
 __meta__ = {
@@ -87,9 +97,9 @@ __meta__ = {
 
 [node name="VBoxAlbum" type="VBoxContainer" parent="."]
 margin_left = 96.0
-margin_top = 116.0
+margin_top = 35.0
 margin_right = 468.0
-margin_bottom = 402.0
+margin_bottom = 321.0
 custom_constants/separation = 34
 __meta__ = {
 "_edit_use_anchors_": false
@@ -97,9 +107,9 @@ __meta__ = {
 
 [node name="LLength" type="Label" parent="."]
 margin_left = 285.0
-margin_top = 442.0
+margin_top = 361.0
 margin_right = 459.0
-margin_bottom = 463.0
+margin_bottom = 392.0
 text = "Total Length:
 "
 __meta__ = {

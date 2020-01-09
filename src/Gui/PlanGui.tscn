@@ -1,0 +1,97 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Gui/PlanGui.gd" type="Script" id=1]
+
+[node name="PlanGui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 152.0
+margin_right = 817.0
+margin_bottom = 540.0
+mouse_filter = 2
+color = Color( 0.980392, 0.960784, 0.823529, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+margin_left = 320.0
+margin_top = 244.0
+margin_right = 462.0
+margin_bottom = 264.0
+text = "Singer"
+
+[node name="OptionButton3" type="OptionButton" parent="."]
+margin_left = 212.0
+margin_top = 180.0
+margin_right = 354.0
+margin_bottom = 200.0
+text = "Keyboard"
+
+[node name="OptionButton4" type="OptionButton" parent="."]
+margin_left = 516.0
+margin_top = 254.0
+margin_right = 658.0
+margin_bottom = 274.0
+text = "Guitar"
+
+[node name="OptionButton5" type="OptionButton" parent="."]
+margin_left = 632.0
+margin_top = 183.0
+margin_right = 774.0
+margin_bottom = 203.0
+text = "Bass"
+
+[node name="OptionButton6" type="OptionButton" parent="."]
+margin_left = 425.0
+margin_top = 111.0
+margin_right = 567.0
+margin_bottom = 131.0
+text = "Drummer"
+
+[node name="OptionButton7" type="OptionButton" parent="."]
+margin_left = 521.0
+margin_top = 314.0
+margin_right = 663.0
+margin_bottom = 334.0
+text = "Mixer"
+
+[node name="OptionButton8" type="OptionButton" parent="."]
+margin_left = 521.0
+margin_top = 358.0
+margin_right = 663.0
+margin_bottom = 378.0
+text = "Studio"
+
+[node name="OptionButton2" type="OptionButton" parent="."]
+margin_left = 432.0
+margin_top = 31.0
+margin_right = 574.0
+margin_bottom = 51.0
+text = "Album"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 408.0
+margin_top = 411.0
+margin_right = 546.0
+margin_bottom = 439.0
+text = "Total Costs:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 408.0
+margin_top = 433.0
+margin_right = 559.0
+margin_bottom = 459.0
+text = "Record it!"
+__meta__ = {
+"_edit_use_anchors_": false
+}

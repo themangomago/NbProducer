@@ -12,53 +12,54 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 190, 21 )
+position = Vector2( 190, -28 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="RevLabel" type="Label" parent="."]
 margin_left = 220.0
-margin_top = 135.0
+margin_top = 86.0
 margin_right = 420.0
-margin_bottom = 347.0
+margin_bottom = 298.0
 text = "re"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ExpLabel" type="Label" parent="."]
 margin_left = 453.0
-margin_top = 132.0
+margin_top = 83.0
 margin_right = 653.0
-margin_bottom = 344.0
+margin_bottom = 295.0
 text = "re"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SumRev" type="Label" parent="."]
 margin_left = 250.0
-margin_top = 378.0
+margin_top = 329.0
 margin_right = 425.0
-margin_bottom = 407.0
+margin_bottom = 358.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="SumExp" type="Label" parent="."]
 margin_left = 468.0
-margin_top = 383.0
+margin_top = 334.0
 margin_right = 643.0
-margin_bottom = 412.0
+margin_bottom = 363.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Cash" type="Label" parent="."]
 margin_left = 437.0
-margin_top = 462.0
+margin_top = 413.0
 margin_right = 612.0
-margin_bottom = 491.0
-
-[node name="BtnClose" type="Button" parent="."]
-margin_left = 898.0
-margin_top = 13.0
-margin_right = 917.0
-margin_bottom = 33.0
-text = "x"
+margin_bottom = 442.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_up" from="BtnClose" to="." method="_on_BtnClose_button_up"]
