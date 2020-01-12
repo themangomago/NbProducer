@@ -29,6 +29,15 @@ func newWeek():
 	
 	addPositionExpenses("Rent", 300)
 
+	var repay = 0
+	for credit in credits:
+		var total = float(credit.amount * (1 + float(credit.rate) / 100))
+		var payRate = total / 24
+		var remaining = max(0, total - (Global.GI.Week.week - credit.week) * payRate )
+		if remaining > 0:
+			repay += payRate
+	addPositionExpenses("Loan repay", repay)
+
 	for i in range(expenses.size()):
 		label += expenses[i].position + " " + str(expenses[i].amount) + "\n"
 		sumExp += expenses[i].amount

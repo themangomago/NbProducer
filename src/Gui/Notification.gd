@@ -2,11 +2,16 @@ extends Control
 
 var backlog = []
 
-func notify(string):
+func notify(string, origin):
 	if $AnimationPlayer.is_playing():
 		backlog.append(string)
 		return
 	_start(string)
+
+func notifySilent(string, origin):
+	print(origin + ":" + string)
+	pass
+	#TODO history log
 
 func _start(string):
 	$Label.set_text(string)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
@@ -23,6 +23,9 @@
 [ext_resource path="res://src/Gui/ComposeGui.tscn" type="PackedScene" id=21]
 [ext_resource path="res://src/Persons/Player.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/Gui/BottomUi.tscn" type="PackedScene" id=23]
+[ext_resource path="res://src/Gui/PhoneGui.tscn" type="PackedScene" id=24]
+[ext_resource path="res://src/Albums/Album.tscn" type="PackedScene" id=25]
+[ext_resource path="res://src/Gui/LogGui.tscn" type="PackedScene" id=26]
 
 [node name="GameInstance" type="Control"]
 anchor_right = 1.0
@@ -41,7 +44,11 @@ __meta__ = {
 
 [node name="Songs" type="Node" parent="."]
 
+[node name="Applications" type="Node" parent="."]
+
 [node name="Albums" type="Node" parent="."]
+
+[node name="Album" parent="Albums" instance=ExtResource( 25 )]
 
 [node name="Company" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -62,6 +69,12 @@ visible = false
 visible = false
 
 [node name="ComposeGui" parent="UI" instance=ExtResource( 21 )]
+visible = false
+
+[node name="PhoneGui" parent="UI" instance=ExtResource( 24 )]
+visible = false
+
+[node name="LogGui" parent="UI" instance=ExtResource( 26 )]
 visible = false
 
 [node name="Notification" parent="UI" instance=ExtResource( 19 )]

@@ -1,0 +1,67 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Gui/LogGui.gd" type="Script" id=1]
+
+[node name="LogGui" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 148.0
+margin_right = 819.0
+margin_bottom = 442.0
+color = Color( 0.309804, 0.309804, 0.309804, 1 )
+
+[node name="Diary" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DiaryLabel" type="Label" parent="Diary"]
+margin_left = 218.0
+margin_top = 98.0
+margin_right = 258.0
+margin_bottom = 112.0
+text = "Diary"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TeDiary" type="TextEdit" parent="Diary"]
+margin_left = 212.0
+margin_top = 123.0
+margin_right = 770.0
+margin_bottom = 434.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnLogbook" type="Button" parent="."]
+margin_left = 166.0
+margin_top = 22.0
+margin_right = 313.0
+margin_bottom = 53.0
+text = "Logbook"
+
+[node name="BtnJobs" type="Button" parent="."]
+margin_left = 360.0
+margin_top = 24.0
+margin_right = 507.0
+margin_bottom = 55.0
+text = "Jobs "
+
+[node name="BtnContracts" type="Button" parent="."]
+margin_left = 558.0
+margin_top = 23.0
+margin_right = 705.0
+margin_bottom = 54.0
+text = "Contracts"
+[connection signal="button_up" from="BtnLogbook" to="." method="_on_BtnLogbook_button_up"]
+[connection signal="button_up" from="BtnJobs" to="." method="_on_BtnJobs_button_up"]
+[connection signal="button_up" from="BtnContracts" to="." method="_on_BtnContracts_button_up"]

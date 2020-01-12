@@ -49,11 +49,22 @@ func showCompose():
 	$ComposeGui.updateGui()
 	setActive($ComposeGui)
 
+func showPhone():
+	closeActive()
+	$PhoneGui.updateGui()
+	setActive($PhoneGui)
+
+func showLog():
+	closeActive()
+	$LogGui.updateGui()
+	setActive($LogGui)
+
 func newWeek():
 	closeActive()
 	setActive($Week)
 	$Week.newWeek()
 	$ComposeGui.newWeek()
+	$PhoneGui.newWeek()
 	
 func setInfo(week, cash, actionPoints):
 	$BottomUi.setInfo(week, cash, actionPoints)

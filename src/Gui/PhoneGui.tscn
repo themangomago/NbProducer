@@ -51,6 +51,7 @@ __meta__ = {
 }
 
 [node name="PBank" type="Panel" parent="."]
+visible = false
 margin_left = 225.0
 margin_top = 43.0
 margin_right = 757.0
@@ -66,13 +67,6 @@ readonly = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="BtnRepay" type="Button" parent="PBank"]
-margin_left = 332.0
-margin_top = 211.0
-margin_right = 494.0
-margin_bottom = 248.0
-text = "Repay"
 
 [node name="BtnBorrow" type="Button" parent="PBank"]
 margin_left = 44.0
@@ -96,4 +90,146 @@ margin_left = 50.0
 margin_top = 117.0
 margin_right = 487.0
 margin_bottom = 144.0
+
+[node name="PJob" type="Panel" parent="."]
+visible = false
+margin_left = 225.0
+margin_top = 43.0
+margin_right = 757.0
+margin_bottom = 462.0
+
+[node name="BtnAdvertise" type="Button" parent="PJob"]
+margin_left = 173.0
+margin_top = 152.0
+margin_right = 335.0
+margin_bottom = 189.0
+text = "Advertise"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObAdvertise" type="OptionButton" parent="PJob"]
+margin_left = 159.0
+margin_top = 112.0
+margin_right = 355.0
+margin_bottom = 134.0
+text = "Looking for.."
+
+[node name="Label" type="Label" parent="PJob"]
+margin_left = 83.0
+margin_top = 51.0
+margin_right = 424.0
+margin_bottom = 107.0
+text = "Job Advertisement: Costs $100 Duration 1 Week
+"
+
+[node name="PSchool" type="Panel" parent="."]
+margin_left = 225.0
+margin_top = 43.0
+margin_right = 757.0
+margin_bottom = 462.0
+
+[node name="BtnSend" type="Button" parent="PSchool"]
+margin_left = 161.0
+margin_top = 270.0
+margin_right = 323.0
+margin_bottom = 307.0
+text = "Send to School"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObPerson" type="OptionButton" parent="PSchool"]
+margin_left = 149.0
+margin_top = 157.0
+margin_right = 345.0
+margin_bottom = 179.0
+
+[node name="ObSubject" type="OptionButton" parent="PSchool"]
+margin_left = 150.0
+margin_top = 214.0
+margin_right = 346.0
+margin_bottom = 236.0
+
+[node name="Label" type="Label" parent="PSchool"]
+margin_left = 95.0
+margin_top = 13.0
+margin_right = 436.0
+margin_bottom = 110.0
+text = "Music School costs 500.
+Chances:
+>5: 50%
+>7: 25%
+>10: 10% "
+
+[node name="PLabel" type="Panel" parent="."]
+visible = false
+margin_left = 225.0
+margin_top = 43.0
+margin_right = 757.0
+margin_bottom = 462.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ObAlbum" type="OptionButton" parent="PLabel"]
+margin_left = 167.0
+margin_top = 97.0
+margin_right = 363.0
+margin_bottom = 119.0
+
+[node name="Label" type="Label" parent="PLabel"]
+margin_left = 93.0
+margin_top = 25.0
+margin_right = 434.0
+margin_bottom = 84.0
+text = "Send Album to Labels
+-> Accept/Decline Offer
+"
+
+[node name="BtnLabel1" type="Button" parent="PLabel"]
+margin_left = 25.0
+margin_top = 188.0
+margin_right = 162.0
+margin_bottom = 221.0
+text = "Label 1"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnLabel2" type="Button" parent="PLabel"]
+margin_left = 190.0
+margin_top = 187.0
+margin_right = 327.0
+margin_bottom = 220.0
+text = "Label 2"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnLabel3" type="Button" parent="PLabel"]
+margin_left = 367.0
+margin_top = 190.0
+margin_right = 504.0
+margin_bottom = 223.0
+text = "Label 3"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TeLog" type="TextEdit" parent="PLabel"]
+margin_left = 27.0
+margin_top = 235.0
+margin_right = 504.0
+margin_bottom = 358.0
+text = "Log"
+[connection signal="button_up" from="BtnSchool" to="." method="_on_BtnSchool_button_up"]
+[connection signal="button_up" from="BtnLabel" to="." method="_on_BtnLabel_button_up"]
+[connection signal="button_up" from="BtnJob" to="." method="_on_BtnJob_button_up"]
 [connection signal="button_up" from="BtnBank" to="." method="_on_BtnBank_button_up"]
+[connection signal="button_up" from="PBank/BtnBorrow" to="." method="_on_BtnBorrow_button_up"]
+[connection signal="button_up" from="PJob/BtnAdvertise" to="." method="_on_BtnAdvertise_button_up"]
+[connection signal="button_up" from="PSchool/BtnSend" to="." method="_on_BtnSend_button_up"]
+[connection signal="button_up" from="PLabel/BtnLabel1" to="." method="_on_BtnLabel1_button_up"]
+[connection signal="button_up" from="PLabel/BtnLabel2" to="." method="_on_BtnLabel2_button_up"]
+[connection signal="button_up" from="PLabel/BtnLabel3" to="." method="_on_BtnLabel3_button_up"]

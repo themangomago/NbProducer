@@ -22,6 +22,7 @@ onready var Week = $UI/Week
 onready var Company = $Company
 onready var Notification = $UI/Notification
 onready var Balance = $UI/BalanceGui
+onready var Applications = $Applications
 
 func _ready():
 	Global.GI = self
@@ -51,6 +52,9 @@ func _physics_process(delta):
 
 
 func nextWeek():
+	#Remove old stuff
+	for i in range(0, $Applications.get_child_count()):
+		$Applications.get_child(i).queue_free()
 	actionPoints = 20
 	$UI.newWeek()
 	
@@ -78,10 +82,16 @@ func negotiateTalent(talent):
 func hireTalent(talent):
 	$Club.remove_child(talent)
 	$Company.add_child(talent)
-	Notification.notify("Talent hired: " + talent.character.name)
+	Notification.notify("Talent hired: " + talent.character.name, "HR")
 
-func notify(string):
-	Notification.notify(string)
+func notify(string, from = ""):
+	Notification.notify(string, from)
+	$UI/LogGui.addDiary(string, from)
+
+func notifySilent(string, from):
+	Notification.notifySilent(string, from)
+	$UI/LogGui.addDiary(string, from)
+	
 
 func performAction(type):
 	match type:
@@ -97,6 +107,10 @@ func performAction(type):
 			$UI.showBalance()
 		Types.Target.Compose:
 			$UI.showCompose()
+		Types.Target.Phone:
+			$UI.showPhone()
+		Types.Target.Log:
+			$UI.showLog()
 		_:
 			print("Unhandled Action")
 
@@ -115,6 +129,8 @@ func getSongs():
 
 func getAlbums():
 	return $Albums
+
+
 
 func _on_BtnNextWeek_button_up():
 	nextWeek()
