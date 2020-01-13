@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
@@ -26,6 +26,10 @@
 [ext_resource path="res://src/Gui/PhoneGui.tscn" type="PackedScene" id=24]
 [ext_resource path="res://src/Albums/Album.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/Gui/LogGui.tscn" type="PackedScene" id=26]
+[ext_resource path="res://src/Visuals/Rooms/Lamp.tscn" type="PackedScene" id=27]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 99 )
 
 [node name="GameInstance" type="Control"]
 anchor_right = 1.0
@@ -107,45 +111,73 @@ visible = false
 [node name="Level" type="Node2D" parent="."]
 
 [node name="BG" type="Sprite" parent="Level"]
-position = Vector2( 32, 3 )
 texture = ExtResource( 3 )
 centered = false
-
-[node name="Bed" parent="Level" instance=ExtResource( 5 )]
-position = Vector2( 79.0448, 211.861 )
-
-[node name="Newspaper" parent="Level" instance=ExtResource( 6 )]
-position = Vector2( 297, 119 )
 
 [node name="Camera2D" type="Camera2D" parent="Level"]
 position = Vector2( 240, 136 )
 current = true
 zoom = Vector2( 0.5, 0.5 )
 
+[node name="Bed" parent="Level" instance=ExtResource( 5 )]
+position = Vector2( 94, 208 )
+
+[node name="Newspaper" parent="Level" instance=ExtResource( 6 )]
+position = Vector2( 305, 112 )
+
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 147, 214 )
+position = Vector2( 152, 207 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
-position = Vector2( 421, 119 )
+position = Vector2( 412, 112 )
 
 [node name="Compose" parent="Level" instance=ExtResource( 11 )]
-position = Vector2( 296, 214 )
+position = Vector2( 298, 208 )
 
 [node name="Bilanz" parent="Level" instance=ExtResource( 12 )]
-position = Vector2( 196, 214 )
+position = Vector2( 187, 208 )
 
 [node name="Plan" parent="Level" instance=ExtResource( 13 )]
-position = Vector2( 365, 214 )
+position = Vector2( 366, 208 )
 
 [node name="Phone" parent="Level" instance=ExtResource( 14 )]
-position = Vector2( 368, 119 )
+position = Vector2( 371, 112 )
 
 [node name="TV" parent="Level" instance=ExtResource( 15 )]
-position = Vector2( 69, 119 )
+position = Vector2( 96, 112 )
 
 [node name="Log" parent="Level" instance=ExtResource( 16 )]
-position = Vector2( 157, 119 )
+position = Vector2( 173, 112 )
+
+[node name="Walls" type="Node2D" parent="Level"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Level/Walls"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/StaticBody2D"]
+position = Vector2( 40, 125 )
+shape = SubResource( 1 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Level/Walls"]
+position = Vector2( 400, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Walls/StaticBody2D2"]
+position = Vector2( 40, 125 )
+shape = SubResource( 1 )
+
+[node name="lamp" parent="Level" instance=ExtResource( 27 )]
+position = Vector2( 340, 32 )
+
+[node name="lamp2" parent="Level" instance=ExtResource( 27 )]
+position = Vector2( 140, 32 )
+light = true
+
+[node name="lamp4" parent="Level" instance=ExtResource( 27 )]
+position = Vector2( 340, 128 )
+light = true
+
+[node name="lamp3" parent="Level" instance=ExtResource( 27 )]
+position = Vector2( 140, 128 )
 [connection signal="button_up" from="UI/BtnNextWeek" to="." method="_on_BtnNextWeek_button_up"]
 [connection signal="button_up" from="UI/BtnClose" to="UI" method="_on_BtnClose_button_up"]

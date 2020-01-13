@@ -6,23 +6,20 @@
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -96.0
+margin_top = -80.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-color = Color( 0.137255, 0.137255, 0.137255, 1 )
-
 [node name="LWeek" type="Label" parent="."]
-margin_left = 20.0
+margin_left = 117.0
 margin_top = 6.0
-margin_right = 192.0
+margin_right = 289.0
 margin_bottom = 31.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LMoney" type="Label" parent="."]
 margin_left = 365.0
@@ -31,7 +28,7 @@ margin_right = 537.0
 margin_bottom = 31.0
 
 [node name="LAction" type="Label" parent="."]
-margin_left = 779.0
-margin_top = 6.0
-margin_right = 951.0
-margin_bottom = 31.0
+margin_left = 623.0
+margin_top = 3.0
+margin_right = 795.0
+margin_bottom = 28.0

@@ -30,7 +30,7 @@ position = Vector2( 0, -20 )
 shape = SubResource( 1 )
 
 [node name="StairWayCellar" type="Area2D" parent="."]
-position = Vector2( 0, 95 )
+position = Vector2( 0, 96 )
 
 [node name="Sprite" type="Sprite" parent="StairWayCellar"]
 position = Vector2( 0, -32 )
