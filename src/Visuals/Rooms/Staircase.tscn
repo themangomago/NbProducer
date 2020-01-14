@@ -14,6 +14,7 @@ script = ExtResource( 2 )
 [node name="Sprite" type="Sprite" parent="StairWayUpper"]
 position = Vector2( 0, -32 )
 texture = ExtResource( 1 )
+hframes = 2
 
 [node name="Label" type="Label" parent="StairWayUpper"]
 margin_left = -21.0
@@ -35,6 +36,7 @@ position = Vector2( 0, 96 )
 [node name="Sprite" type="Sprite" parent="StairWayCellar"]
 position = Vector2( 0, -32 )
 texture = ExtResource( 1 )
+hframes = 2
 
 [node name="Label" type="Label" parent="StairWayCellar"]
 margin_left = -21.0

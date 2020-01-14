@@ -128,7 +128,7 @@ position = Vector2( 305, 112 )
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 152, 207 )
+position = Vector2( 152, 208 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 412, 112 )
