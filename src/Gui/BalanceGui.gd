@@ -23,9 +23,9 @@ func addPositionRevenue(position, expanses):
 
 
 func newWeek():
-	var label = ""
 	var sumRev = 0
 	var sumExp = 0
+	var text = ""
 	
 	addPositionExpenses("Rent", 300)
 
@@ -37,22 +37,32 @@ func newWeek():
 		if remaining > 0:
 			repay += payRate
 	addPositionExpenses("Loan repay", repay)
-
-	for i in range(expenses.size()):
-		label += expenses[i].position + " " + str(expenses[i].amount) + "\n"
-		sumExp += expenses[i].amount
-	$ExpLabel.set_text(label)
-	$SumExp.set_text(str(sumExp))
 	
-	label = ""
+	text += "Balance Sheet\n\n"
+	text += "Revenue\n------------------------------------------\n"
 	for i in range(revenues.size()):
-		label += revenues[i].position + " " + str(revenues[i].amount) + "\n"
+		text += revenues[i].position + " $" + str(revenues[i].amount) + "\n"
 		sumRev += revenues[i].amount
-	$RevLabel.set_text(label)
-	$SumRev.set_text(str(sumRev))
-	
+	text += "\nSum: $" + str(sumRev) + "\n\n"
+
+	text += "Expenses\n------------------------------------------\n"
+	for i in range(expenses.size()):
+		text += expenses[i].position + " $" + str(expenses[i].amount) + "\n"
+		sumExp += expenses[i].amount
+	text += "\nSum: $" + str(sumExp) + "\n\n"
+
+	text += "------------------------------------------\n"
+	if (sumRev - sumExp) < 0:
+		text += "Total: [color=#e83b3b]$" + str(sumRev - sumExp) + "[/color]\n"
+	else:
+		text += "Total: $" + str(sumRev - sumExp) + "\n"
 	cash = cash + sumRev - sumExp
-	$Cash.set_text(str(cash))
+	
+	if (cash) < 0:
+		text += "\nCash: [color=#e83b3b]$" + str(cash) + "[/color]\n"
+	else:
+		text += "\nCash: $" + str(cash) + "\n"
+	$Text.bbcode_text = text
 	
 	revenues.clear()
 	expenses.clear()

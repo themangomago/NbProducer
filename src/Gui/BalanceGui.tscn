@@ -1,65 +1,32 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/Gui/BalanceGui.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/gui/balancesheet.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/HandwritingFont.tres" type="DynamicFont" id=3]
 
 [node name="BalanceGui" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 2.0
+margin_bottom = 1.0
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 190, -28 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="RevLabel" type="Label" parent="."]
-margin_left = 220.0
-margin_top = 86.0
-margin_right = 420.0
-margin_bottom = 298.0
-text = "re"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ExpLabel" type="Label" parent="."]
-margin_left = 453.0
-margin_top = 83.0
-margin_right = 653.0
-margin_bottom = 295.0
-text = "re"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SumRev" type="Label" parent="."]
-margin_left = 250.0
-margin_top = 329.0
-margin_right = 425.0
-margin_bottom = 358.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SumExp" type="Label" parent="."]
-margin_left = 468.0
-margin_top = 334.0
-margin_right = 643.0
-margin_bottom = 363.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Cash" type="Label" parent="."]
-margin_left = 437.0
-margin_top = 413.0
-margin_right = 612.0
-margin_bottom = 442.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Text" type="RichTextLabel" parent="."]
+margin_left = 327.0
+margin_top = 27.0
+margin_right = 664.0
+margin_bottom = 440.0
+custom_fonts/normal_font = ExtResource( 3 )
+custom_colors/default_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+bbcode_enabled = true
+scroll_active = false

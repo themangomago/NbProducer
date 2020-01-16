@@ -11,7 +11,7 @@ onready var vSongScene = preload("res://src/Components/CompSong.tscn")
 onready var albumScene = preload("res://src/Albums/Album.tscn")
 
 const BOUNDARY_TOP = 60 * 60
-const BOUNDARY_BOTTOM = 2 * 60
+const BOUNDARY_BOTTOM = 15 * 60
 
 func clear():
 	artistNodes.clear()
@@ -66,7 +66,10 @@ func updateGui():
 			$VBoxSongs.add_child(vSongNode)
 
 
-	$LLength.set_text("Total Length:" + str(int(totalLength/60)) + ":%0*d" % [2, totalLength - int(totalLength/60)*60])
+	if totalLength >= BOUNDARY_BOTTOM and totalLength <= BOUNDARY_TOP:
+		$Length.bbcode_text = "Total Length: " + str(int(totalLength/60)) + ":%0*d" % [2, totalLength - int(totalLength/60)*60] 
+	else:
+		$Length.bbcode_text = "Total Length: [color=#b33831]" + str(int(totalLength/60)) + ":%0*d" % [2, totalLength - int(totalLength/60)*60] + "[/color]"
 
 
 func switchRecordButton(to):

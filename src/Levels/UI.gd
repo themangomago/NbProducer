@@ -15,10 +15,12 @@ func connectClub(pool):
 
 func closeActive():
 	if activeDisplay:
+		$Bg.hide()
 		activeDisplay.hide()
 		activeDisplay = null
 
 func setActive(node):
+	$Bg.show()
 	node.show()
 	activeDisplay = node
 

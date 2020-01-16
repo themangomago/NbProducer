@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Gui/Week.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/gui/calendar.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/mago3.3.ttf" type="DynamicFontData" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "week"
@@ -67,6 +68,11 @@ tracks/4/keys = {
 "values": [ 0.0, 0.0, -20.6, 10.0, 0.0 ]
 }
 
+[sub_resource type="DynamicFont" id=2]
+size = 80
+outline_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+font_data = ExtResource( 3 )
+
 [node name="Week" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -81,7 +87,7 @@ modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0, 0, 0, 1 )
+color = Color( 0.180392, 0.133333, 0.184314, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -98,11 +104,14 @@ texture = ExtResource( 2 )
 hframes = 2
 
 [node name="Label" type="Label" parent="CalendarSheetStatic"]
-margin_left = -23.75
-margin_top = -22.8
-margin_right = 23.25
-margin_bottom = -8.79999
-text = "Week x"
+margin_left = -82.0
+margin_top = -10.0
+margin_right = 89.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "155"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -117,11 +126,14 @@ hframes = 2
 frame = 1
 
 [node name="Label" type="Label" parent="CalendarSheetDynamic"]
-margin_left = -23.75
-margin_top = -22.8
-margin_right = 23.25
-margin_bottom = -8.79999
-text = "Week x"
+margin_left = -82.0
+margin_top = -10.0
+margin_right = 89.0
+margin_bottom = 58.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "155"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

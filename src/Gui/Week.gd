@@ -53,9 +53,9 @@ func newWeek():
 	clubWeek()
 	playerHasVisitedClubThisWeek = false
 	
-	$CalendarSheetDynamic/Label.set_text("Week "+ str(week))
+	$CalendarSheetDynamic/Label.set_text(str(week))
 	week += 1
-	$CalendarSheetStatic/Label.set_text("Week "+ str(week))
+	$CalendarSheetStatic/Label.set_text(str(week))
 	
 	if week != 1:
 		get_parent().get_parent().lockPlayer = true

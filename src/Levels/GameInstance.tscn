@@ -60,6 +60,16 @@ script = ExtResource( 2 )
 [node name="UI" type="CanvasLayer" parent="."]
 script = ExtResource( 7 )
 
+[node name="Bg" type="ColorRect" parent="UI"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0.180392, 0.133333, 0.184314, 0.627451 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ClubGui" parent="UI" instance=ExtResource( 9 )]
 visible = false
 
@@ -84,20 +94,20 @@ visible = false
 [node name="Notification" parent="UI" instance=ExtResource( 19 )]
 
 [node name="BtnNextWeek" type="Button" parent="UI"]
-margin_left = 284.0
-margin_top = 6.0
-margin_right = 366.0
-margin_bottom = 26.0
+margin_left = 96.0
+margin_top = 508.0
+margin_right = 178.0
+margin_bottom = 528.0
 text = "Next Week"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BtnClose" type="Button" parent="UI"]
-margin_left = 464.0
-margin_top = 5.0
-margin_right = 494.0
-margin_bottom = 25.0
+margin_left = 717.0
+margin_top = 3.0
+margin_right = 747.0
+margin_bottom = 23.0
 text = "x"
 __meta__ = {
 "_edit_use_anchors_": false

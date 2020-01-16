@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Components/CompSong.gd" type="Script" id=1]
+[ext_resource path="res://assets/art/gui/icon_delete.png" type="Texture" id=2]
+[ext_resource path="res://assets/art/gui/icon_move.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/HandwritingFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://src/Components/CompStar.tscn" type="PackedScene" id=5]
 
 [node name="CompSong" type="Control"]
 margin_right = 320.0
@@ -11,6 +15,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 margin_right = 320.0
 margin_bottom = 32.0
 mouse_filter = 1
@@ -20,46 +25,63 @@ __meta__ = {
 }
 
 [node name="LSong" type="Label" parent="."]
-margin_left = 32.0
+margin_left = 30.0
 margin_top = 10.0
-margin_right = 205.0
+margin_right = 180.0
 margin_bottom = 26.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 text = "Song Label"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="LRating" type="Label" parent="."]
-margin_left = 191.0
-margin_top = 11.0
-margin_right = 211.0
-margin_bottom = 42.0
-text = "5
-"
-
 [node name="LLength" type="Label" parent="."]
-margin_left = 212.0
+margin_left = 256.0
 margin_top = 11.0
-margin_right = 276.0
+margin_right = 320.0
 margin_bottom = 42.0
+custom_fonts/font = ExtResource( 4 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 text = "5
 "
-
-[node name="BtnToAlbum" type="Button" parent="."]
-margin_left = 6.0
-margin_top = 6.0
-margin_right = 23.0
-margin_bottom = 26.0
-text = "<"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BtnDelete" type="Button" parent="."]
-margin_left = 283.0
-margin_top = 7.0
-margin_right = 303.0
-margin_bottom = 27.0
-text = "RM"
-[connection signal="button_up" from="BtnToAlbum" to="." method="_on_BtnToAlbum_button_up"]
+[node name="IconDelete" type="Sprite" parent="."]
+position = Vector2( 320, 16 )
+texture = ExtResource( 2 )
+hframes = 3
+
+[node name="IconMove" type="Sprite" parent="."]
+position = Vector2( 15, 16 )
+texture = ExtResource( 3 )
+hframes = 3
+
+[node name="BtnDelete" type="TextureButton" parent="."]
+margin_left = 290.0
+margin_top = 6.0
+margin_right = 310.0
+margin_bottom = 26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BtnToAlbum" type="TextureButton" parent="."]
+margin_left = 6.0
+margin_top = 6.0
+margin_right = 23.0
+margin_bottom = 26.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="." instance=ExtResource( 5 )]
+position = Vector2( 167, 8 )
 [connection signal="button_up" from="BtnDelete" to="." method="_on_BtnDelete_button_up"]
+[connection signal="mouse_entered" from="BtnDelete" to="." method="_on_BtnDelete_mouse_entered"]
+[connection signal="mouse_exited" from="BtnDelete" to="." method="_on_BtnDelete_mouse_exited"]
+[connection signal="button_up" from="BtnToAlbum" to="." method="_on_BtnToAlbum_button_up"]
+[connection signal="mouse_entered" from="BtnToAlbum" to="." method="_on_BtnToAlbum_mouse_entered"]
+[connection signal="mouse_exited" from="BtnToAlbum" to="." method="_on_BtnToAlbum_mouse_exited"]
