@@ -1,21 +1,17 @@
 # TODO
 
-
-
-## Saturday 18
-Compose:
-- Remove Button
-Plan:
-- Art
-- Production Gui
-
-## Sunday 19
+## Friday 
 Logbook:
 - Jobs
 - Contracts
 - Art
 
-## Monday 20
+## Saturday 18
+Plan:
+- Art
+- Production Gui
+
+## Sunday 20
 Phone:
 - Art
 Newspaper:

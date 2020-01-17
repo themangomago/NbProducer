@@ -93,16 +93,6 @@ visible = false
 
 [node name="Notification" parent="UI" instance=ExtResource( 19 )]
 
-[node name="BtnNextWeek" type="Button" parent="UI"]
-margin_left = 96.0
-margin_top = 508.0
-margin_right = 178.0
-margin_bottom = 528.0
-text = "Next Week"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="BtnClose" type="Button" parent="UI"]
 margin_left = 717.0
 margin_top = 3.0
@@ -114,6 +104,16 @@ __meta__ = {
 }
 
 [node name="BottomUi" parent="UI" instance=ExtResource( 23 )]
+
+[node name="BtnNextWeek" type="Button" parent="UI"]
+margin_left = 96.0
+margin_top = 508.0
+margin_right = 178.0
+margin_bottom = 528.0
+text = "Next Week"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Week" parent="UI" instance=ExtResource( 18 )]
 visible = false
@@ -138,7 +138,7 @@ position = Vector2( 305, 112 )
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 152, 208 )
+position = Vector2( 129, 112 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 412, 112 )
@@ -189,5 +189,5 @@ light = true
 
 [node name="lamp3" parent="Level" instance=ExtResource( 27 )]
 position = Vector2( 140, 128 )
-[connection signal="button_up" from="UI/BtnNextWeek" to="." method="_on_BtnNextWeek_button_up"]
 [connection signal="button_up" from="UI/BtnClose" to="UI" method="_on_BtnClose_button_up"]
+[connection signal="button_up" from="UI/BtnNextWeek" to="." method="_on_BtnNextWeek_button_up"]

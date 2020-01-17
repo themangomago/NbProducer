@@ -19,9 +19,11 @@ func clear():
 	$OptMelody.clear()
 	
 	for child in $VBoxSongs.get_children():
+		child.hide()
 		child.queue_free()
 	
 	for child in $VBoxAlbum.get_children():
+		child.hide()
 		child.queue_free()
 
 func updateGui():
@@ -57,13 +59,14 @@ func updateGui():
 	for song in songs.get_children():
 		vSongNode = vSongScene.instance()
 		#setup(node, title, rating, onAlbum)
-		vSongNode.setup(song)
-		
-		if song.data.onAlbum:
-			$VBoxAlbum.add_child(vSongNode)
-			totalLength += song.data.duration
+		if vSongNode.setup(song):
+			if song.data.onAlbum:
+				$VBoxAlbum.add_child(vSongNode)
+				totalLength += song.data.duration
+			else:
+				$VBoxSongs.add_child(vSongNode)
 		else:
-			$VBoxSongs.add_child(vSongNode)
+			vSongNode = null
 
 
 	if totalLength >= BOUNDARY_BOTTOM and totalLength <= BOUNDARY_TOP:
@@ -87,7 +90,9 @@ func newWeek():
 			song = null
 
 func removeSong(target):
-	print("TODO")
+	target.queue_free()
+	
+	$Timer.start()
 
 func _on_BtnNewSong_button_up():
 	if not song:
@@ -155,3 +160,7 @@ func _on_BtnRecord_button_up():
 
 	else:
 		Global.GI.notify("Songs do not fit on LP!")
+
+
+func _on_Timer_timeout():
+	updateGui()

@@ -7,7 +7,7 @@
 [ext_resource path="res://src/Components/CompStar.tscn" type="PackedScene" id=5]
 
 [node name="CompSong" type="Control"]
-margin_right = 320.0
+margin_right = 341.0
 margin_bottom = 32.0
 script = ExtResource( 1 )
 __meta__ = {
@@ -60,9 +60,9 @@ texture = ExtResource( 3 )
 hframes = 3
 
 [node name="BtnDelete" type="TextureButton" parent="."]
-margin_left = 290.0
+margin_left = 309.0
 margin_top = 6.0
-margin_right = 310.0
+margin_right = 329.0
 margin_bottom = 26.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -79,9 +79,14 @@ __meta__ = {
 
 [node name="CompStar" parent="." instance=ExtResource( 5 )]
 position = Vector2( 167, 8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="button_up" from="BtnDelete" to="." method="_on_BtnDelete_button_up"]
 [connection signal="mouse_entered" from="BtnDelete" to="." method="_on_BtnDelete_mouse_entered"]
 [connection signal="mouse_exited" from="BtnDelete" to="." method="_on_BtnDelete_mouse_exited"]
 [connection signal="button_up" from="BtnToAlbum" to="." method="_on_BtnToAlbum_button_up"]
 [connection signal="mouse_entered" from="BtnToAlbum" to="." method="_on_BtnToAlbum_mouse_entered"]
 [connection signal="mouse_exited" from="BtnToAlbum" to="." method="_on_BtnToAlbum_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

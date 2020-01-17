@@ -8,10 +8,13 @@ var diary = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#$Diary/TeDiary.set("custom_colors/font_color",Color(1,0,0))
 	diary = []
 
 
 func addDiary(string, origin):
+	print("diary added")
+	print(string)
 	diary.push_front({"string": string, "origin": origin, "week": Global.GI.Week.week})
 
 func updateDiary():

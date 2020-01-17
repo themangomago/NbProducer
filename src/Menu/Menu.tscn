@@ -114,14 +114,13 @@ __meta__ = {
 }
 
 [node name="Settings" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="ButtonLights" type="TextureButton" parent="Settings"]
+[node name="ButtonFullscreen" type="TextureButton" parent="Settings"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -64.0
@@ -136,7 +135,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Text" type="RichTextLabel" parent="Settings/ButtonLights"]
+[node name="Text" type="RichTextLabel" parent="Settings/ButtonFullscreen"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 16.0
@@ -206,5 +205,5 @@ text = "Version"
 [connection signal="button_up" from="Main/ButtonExit" to="." method="_on_ButtonExit_button_up"]
 [connection signal="button_up" from="Main/ButtonSettings" to="." method="_on_ButtonSettings_button_up"]
 [connection signal="button_up" from="Main/ButtonPlay" to="." method="_on_ButtonPlay_button_up"]
-[connection signal="button_up" from="Settings/ButtonLights" to="." method="_on_ButtonLights_button_up"]
+[connection signal="button_up" from="Settings/ButtonFullscreen" to="." method="_on_ButtonFullscreen_button_up"]
 [connection signal="button_up" from="Settings/ButtonBack" to="." method="_on_ButtonBack_button_up"]

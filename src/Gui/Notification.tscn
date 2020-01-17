@@ -31,11 +31,25 @@ __meta__ = {
 anims/pop = SubResource( 1 )
 
 [node name="Label" type="Label" parent="."]
+anchor_right = 0.334
+anchor_bottom = 0.059
 margin_left = 392.0
 margin_top = 560.0
-margin_right = 539.0
-margin_bottom = 574.0
-text = "Notification"
+margin_right = 218.36
+margin_bottom = 557.14
+text = "Notification
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Label"]
+show_behind_parent = true
+margin_left = -119.0
+margin_top = -7.0
+margin_right = 200.0
+margin_bottom = 23.0
+color = Color( 0.984314, 0.529412, 0.529412, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

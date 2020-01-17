@@ -162,5 +162,13 @@ custom_colors/default_color = Color( 0.180392, 0.133333, 0.184314, 1 )
 bbcode_enabled = true
 bbcode_text = "Total Length:"
 text = "Total Length:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
 [connection signal="button_up" from="BtnRecord" to="." method="_on_BtnRecord_button_up"]
 [connection signal="button_up" from="BtnNewSong" to="." method="_on_BtnNewSong_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

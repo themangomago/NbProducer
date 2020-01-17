@@ -32,17 +32,17 @@ func stateTransition(to):
 
 func updateSettings():
 	var lights = Global.getGameManager().getLights()
-	
-	if lights:
-		$Settings/ButtonLights/Text.bbcode_text = "[center]Light: On[/center]"
-	else:
-		$Settings/ButtonLights/Text.bbcode_text = "[center]Light: Off[/center]"
 
+	if Global.userConfig.fullscreen:
+		$Settings/ButtonFullscreen/Text.bbcode_text = "[center]Fullscreen: On[/center]"
+	else:
+		$Settings/ButtonFullscreen/Text.bbcode_text = "[center]Fullscreen: Off[/center]"
 
 func _on_ButtonBack_button_up():
 	stateTransition(MenuState.Main)
 
-func _on_ButtonLights_button_up():
-	var lights = Global.getGameManager().getLights()
-	Global.getGameManager().setLights(!lights)
+
+func _on_ButtonFullscreen_button_up():
+	Global.fullscreen()
 	updateSettings()
+	

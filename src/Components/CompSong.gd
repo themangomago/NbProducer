@@ -3,6 +3,9 @@ extends Control
 var assignedNode = null
 
 func setup(node):
+	if node == null:
+		return false
+	
 	if node.data.onAlbum:
 		$BtnToAlbum.hide()
 		$IconMove.hide()
@@ -11,8 +14,7 @@ func setup(node):
 	
 	if node.data.ready:
 		$CompStar.setStars(node.data.quality)
-		
-		print(node.data.duration)
+
 		var duration =  str(int(node.data.duration/60)) + ":%0*d" % [2, node.data.duration - int(node.data.duration/60)*60]
 		$LLength.set_text(duration + "m")
 	else:
@@ -23,7 +25,7 @@ func setup(node):
 		$IconDelete.frame = 2
 		$IconMove.frame = 2
 	assignedNode = node
-	
+	return true
 
 
 
@@ -33,7 +35,9 @@ func _on_BtnToAlbum_button_up():
 
 
 func _on_BtnDelete_button_up():
-	get_parent().get_parent().removeSong(assignedNode)
+	self.hide()
+	$Timer.start()
+	
 
 
 func _on_BtnDelete_mouse_entered():
@@ -53,3 +57,7 @@ func _on_BtnToAlbum_mouse_entered():
 func _on_BtnToAlbum_mouse_exited():
 	if not $BtnToAlbum.disabled:
 		$IconMove.frame = 0
+
+
+func _on_Timer_timeout():
+	get_parent().get_parent().removeSong(assignedNode)

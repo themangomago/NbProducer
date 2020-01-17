@@ -28,7 +28,8 @@ const NbConfig = {
 
 # User Config
 var userConfig = {
-	"highscore": 0
+	"highscore": 0,
+	"fullscreen": false
 }
 
 # GameMasterNode
@@ -55,6 +56,9 @@ func _ready():
 	rng.randomize()
 	loadConfig()
 	videoSetup(1)
+	fullscreen(userConfig.fullscreen)
+
+
 
 # Config Save
 func saveConfig():
@@ -73,6 +77,10 @@ func loadConfig():
 	cfgFile.open("user://config.cfg", File.READ)
 	var data = parse_json(cfgFile.get_line())
 	userConfig.highscore = data.highscore
+	userConfig.fullscreen = data.fullscreen
+	# When stuck here, the config attributes have been changed.
+	# Delete the Config.cfg to solve this issue.
+	# Project->Open Project Data Folder-> Config.cfg
 
 # Window Scaler
 func videoSetup(scale = 2):
@@ -84,10 +92,14 @@ func videoSetup(scale = 2):
 	OS.set_window_size(window_size)
 
 # Fullscreen Toggle
-func fullscreen():
-	if OS.window_fullscreen:
+func fullscreen(set = null):
+	if set == null:
+		userConfig.fullscreen = !userConfig.fullscreen
+		saveConfig()
+		
+	if not userConfig.fullscreen:
 		OS.window_fullscreen = false
-		videoSetup(2)
+		videoSetup(1)
 	else:
 		videoSetup(3)
 		OS.window_fullscreen = true
