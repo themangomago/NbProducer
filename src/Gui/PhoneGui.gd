@@ -41,8 +41,7 @@ func updateGui():
 
 func newWeek():
 	if advertise >= 0:
-		var newNodesCount = randi()%3
-		
+		var newNodesCount = randi()%4 
 		if newNodesCount > 0:
 			for i in range(newNodesCount):
 				#TODO player create

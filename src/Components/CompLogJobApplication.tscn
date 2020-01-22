@@ -1,0 +1,186 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/Components/CompLogJobApplication.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/HandwritingFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://src/Components/CompStar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/art/gui/buttons/delete/hover.png" type="Texture" id=4]
+[ext_resource path="res://assets/art/gui/buttons/delete/delete.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/gui/buttons/delete/normal.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/gui/buttons/sign/hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/art/gui/buttons/sign/normal.png" type="Texture" id=8]
+
+[node name="CompLogJobApplication" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -640.0
+margin_bottom = -440.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.768627, 0.0901961, 0.788235, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LPersona" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 2.0
+margin_right = 131.0
+margin_bottom = 15.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Name Surname, w28"
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="LCosts" type="Label" parent="."]
+margin_left = 3.0
+margin_top = 62.0
+margin_right = 171.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Costs: $500 / week"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Skills" type="Control" parent="."]
+margin_left = 3.0
+margin_right = 43.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LSkill1" type="Label" parent="Skills"]
+margin_left = 16.0
+margin_top = 17.0
+margin_right = 85.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Keyboard"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="Skills/LSkill1" instance=ExtResource( 3 )]
+position = Vector2( 70, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="LSkill2" type="Label" parent="Skills"]
+margin_left = 16.0
+margin_top = 31.0
+margin_right = 85.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Guitar"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="Skills/LSkill2" instance=ExtResource( 3 )]
+position = Vector2( 70, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="LSkill3" type="Label" parent="Skills"]
+margin_left = 16.0
+margin_top = 45.0
+margin_right = 85.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Bass"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="Skills/LSkill3" instance=ExtResource( 3 )]
+position = Vector2( 70, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="LSkill4" type="Label" parent="Skills"]
+margin_left = 150.0
+margin_top = 17.0
+margin_right = 219.0
+margin_bottom = 30.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Drum"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="Skills/LSkill4" instance=ExtResource( 3 )]
+position = Vector2( 70, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="LSkill5" type="Label" parent="Skills"]
+margin_left = 150.0
+margin_top = 31.0
+margin_right = 219.0
+margin_bottom = 44.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Texter"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="Skills/LSkill5" instance=ExtResource( 3 )]
+position = Vector2( 70, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="LSkill6" type="Label" parent="Skills"]
+margin_left = 150.0
+margin_top = 45.0
+margin_right = 219.0
+margin_bottom = 58.0
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
+text = "Mixer"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompStar" parent="Skills/LSkill6" instance=ExtResource( 3 )]
+position = Vector2( 70, 0 )
+scale = Vector2( 0.75, 0.75 )
+
+[node name="BtnDelete" type="TextureButton" parent="."]
+margin_left = 299.0
+margin_top = 78.0
+margin_right = 315.0
+margin_bottom = 94.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
+
+[node name="BtnSign" type="TextureButton" parent="."]
+margin_left = 195.0
+margin_top = 79.0
+margin_right = 292.0
+margin_bottom = 95.0
+texture_normal = ExtResource( 8 )
+texture_hover = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="BtnDelete" to="." method="_on_BtnDelete_button_up"]
+[connection signal="button_up" from="BtnSign" to="." method="_on_BtnSign_button_up"]

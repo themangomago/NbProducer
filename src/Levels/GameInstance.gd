@@ -23,6 +23,7 @@ onready var Company = $Company
 onready var Notification = $UI/Notification
 onready var Balance = $UI/BalanceGui
 onready var Applications = $Applications
+onready var LogGui = $UI/LogGui
 
 func _ready():
 	Global.GI = self
