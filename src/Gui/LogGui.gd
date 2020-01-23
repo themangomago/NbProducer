@@ -1,28 +1,21 @@
 extends Control
 
 
-var diary = []
 
 
 onready var CompLogJob = preload("res://src/Components/CompLogJobApplication.tscn")
-
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	#$Diary/TeDiary.set("custom_colors/font_color",Color(1,0,0))
-	diary = []
+onready var CompLogContract = preload("res://src/Components/CompLogContracts.tscn")
 
 
 func addDiary(string, origin):
 	print("diary added")
 	print(string)
-	diary.push_front({"string": string, "origin": origin, "week": Global.GI.Week.week})
+	Data.diary.push_front({"string": string, "origin": origin, "week": Global.GI.Week.week})
 
 func updateDiary():
 	$Diary/TeDiary.text = "MEMO:\n"
 	
-	for entry in diary:
+	for entry in Data.diary:
 		$Diary/TeDiary.text += entry.origin + ": " + entry.string + " (Week: " + str(entry.week) + ")\n"
 
 
@@ -51,7 +44,25 @@ func updateJobs():
 		$Jobs/LJobs.show()
 
 func updateContracts():
-	pass
+	for node in $Contracts/Vpage1.get_children():
+		node.queue_free()
+	for node in $Contracts/Vpage2.get_children():
+		node.queue_free()
+	
+	if Global.GI.Company.get_child_count() > 0:
+		var count = 0
+		$Contracts/LContract.hide()
+		for artists in Global.GI.Company.get_children():
+			var node = CompLogContract.instance()
+			node.setup(artists)
+			count += 1
+			
+			if count < 5:
+				$Contracts/Vpage1.add_child(node)
+			else:
+				$Contracts/Vpage2.add_child(node)
+	else:
+		$Contracts/LContract.show()
 
 func clear():
 	$Diary.hide()
@@ -63,9 +74,15 @@ func jobsDelete(artist):
 	$Timer.start() #Delete GuiUpdate
 
 func jobsSign(artist):
-	Global.GI.Applications.remove_child(artist)
-	Global.GI.Company.add_child(artist)
-	Global.GI.Notification.notify("Artist " + artist.character.name + " is now available.", "HR")
+	if Global.GI.checkAp(Data.AP_COST_LOG_HIRE, "HR"):
+		Global.GI.decAp(Data.AP_COST_LOG_HIRE)
+		Global.GI.Applications.remove_child(artist)
+		Global.GI.Company.add_child(artist)
+		Global.GI.Notification.notify("Artist " + artist.character.name + " is now available.", "HR")
+
+func fireArtist(artist):
+	artist.queue_free()
+	$Timer.start() 
 
 func _on_BtnJobs_button_up():
 	clear()
@@ -91,6 +108,6 @@ func _on_Timer_timeout():
 		0: #Memo
 			pass
 		1: #Contracts
-			pass
+			updateContracts()
 		_: #Jobs
 			updateJobs()

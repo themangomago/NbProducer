@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Gui/LogGui.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/gui/log.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/HandwritingFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/Components/CompLogJobApplication.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/Components/CompLogContracts.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -78,25 +79,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DiaryLabel" type="Label" parent="Contracts"]
-margin_left = 218.0
-margin_top = 98.0
-margin_right = 258.0
-margin_bottom = 112.0
-text = "Contracts"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TeDiary" type="TextEdit" parent="Contracts"]
-margin_left = 158.0
-margin_top = 55.0
-margin_right = 453.0
-margin_bottom = 437.0
-custom_styles/normal = SubResource( 1 )
+[node name="LContract" type="Label" parent="Contracts"]
+visible = false
+margin_left = 138.0
+margin_top = 37.0
+margin_right = 458.0
+margin_bottom = 104.0
 custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-wrap_enabled = true
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "No contracts! 
+Visit a club to hire a singer or
+place an advertisement in the newspaper.
+"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -119,7 +113,41 @@ margin_top = 97.0
 margin_right = 178.0
 margin_bottom = 120.0
 
+[node name="Vpage1" type="VBoxContainer" parent="Contracts"]
+margin_left = 140.0
+margin_top = 17.0
+margin_right = 460.0
+margin_bottom = 437.0
+custom_constants/separation = 104
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="CompLogJobApplication2" parent="Contracts/Vpage1" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 320.0
+margin_bottom = 0.0
+
+[node name="Vpage2" type="VBoxContainer" parent="Contracts"]
+margin_left = 505.0
+margin_top = 17.0
+margin_right = 825.0
+margin_bottom = 437.0
+custom_constants/separation = 104
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CompLogJobApplication2" parent="Contracts/Vpage2" instance=ExtResource( 5 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 320.0
+margin_bottom = 0.0
+
 [node name="Jobs" type="Control" parent="."]
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 __meta__ = {
@@ -139,19 +167,6 @@ text = "No applications!
 Place an advertisement in the newspaper.
 
 Call the newspaper today! "
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="TeDiary" type="TextEdit" parent="Jobs"]
-margin_left = 158.0
-margin_top = 55.0
-margin_right = 453.0
-margin_bottom = 437.0
-custom_styles/normal = SubResource( 1 )
-custom_fonts/font = ExtResource( 3 )
-custom_colors/font_color = Color( 0.180392, 0.133333, 0.184314, 1 )
-wrap_enabled = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

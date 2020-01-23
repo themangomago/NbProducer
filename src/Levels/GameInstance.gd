@@ -24,6 +24,8 @@ onready var Notification = $UI/Notification
 onready var Balance = $UI/BalanceGui
 onready var Applications = $Applications
 onready var LogGui = $UI/LogGui
+onready var Albums = $Albums
+onready var Plan = $UI/PlanGui
 
 func _ready():
 	Global.GI = self
@@ -48,14 +50,31 @@ func _ready():
 	#TODO
 	newGame()
 
+	SetupDebug()
+
+func SetupDebug():
+	var cat1 = Debug.addCategory("ArtistFactory")
+	Debug.addOption(cat1, "Add 1 Artist to Company", funcref(self, "debugAddArtist"), 1)
+	Debug.addOption(cat1, "Add 5 Artists to Company", funcref(self, "debugAddArtist"), 5)
+
+
+func debugAddArtist(count):
+	for i in range(count):
+		var node = ArtistFactory.newArtist(0)
+		node.contract.salary = 100
+		Company.add_child(node)
+		print("> created: " + node.character.name)
+
+
+
 func _physics_process(delta):
 	$UI.setInfo($UI/Week.week, Balance.cash, actionPoints)
 
 
 func nextWeek():
 	#Remove old stuff
-	for i in range(0, $Applications.get_child_count()):
-		$Applications.get_child(i).queue_free()
+	# for i in range(0, $Applications.get_child_count()): #TODO: no need to remove old applications?
+	# 	$Applications.get_child(i).queue_free()
 	actionPoints = 20
 	$UI.newWeek()
 	
@@ -64,6 +83,14 @@ func newGame():
 	$UI/Week.newGame()
 
 
+func checkAp(req, src):
+	if actionPoints >= req:
+		return true
+	Notification.warn("Not enough action points!")
+	return false
+
+func decAp(req):
+	actionPoints -= req
 
 ## DUMMY FUNCTIONS
 
@@ -86,13 +113,15 @@ func hireTalent(talent):
 	Notification.notify("Talent hired: " + talent.character.name, "HR")
 
 func notify(string, from = ""):
+	print("deprecated: " + str(string) + " from: " + from)
 	Notification.notify(string, from)
 	$UI/LogGui.addDiary(string, from)
 
 func notifySilent(string, from):
+	print("deprecated: " + str(string) + " from: " + from)
 	Notification.notifySilent(string, from)
 	$UI/LogGui.addDiary(string, from)
-	
+
 
 func performAction(type):
 	match type:
@@ -112,6 +141,8 @@ func performAction(type):
 			$UI.showPhone()
 		Types.Target.Log:
 			$UI.showLog()
+		Types.Target.Plan:
+			$UI.showPlan()
 		_:
 			print("Unhandled Action")
 

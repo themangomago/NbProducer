@@ -61,6 +61,11 @@ func showLog():
 	$LogGui.updateGui()
 	setActive($LogGui)
 
+func showPlan():
+	closeActive()
+	$PlanGui.updateGui()
+	setActive($PlanGui)
+
 func newWeek():
 	closeActive()
 	setActive($Week)

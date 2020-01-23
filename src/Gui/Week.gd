@@ -50,6 +50,7 @@ func newWeek():
 	Company.newWeek()
 	
 	Global.GI.Balance.newWeek()
+	Global.GI.Plan.newWeek()
 	clubWeek()
 	playerHasVisitedClubThisWeek = false
 	

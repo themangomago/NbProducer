@@ -3,10 +3,6 @@ extends Node
 var artistScene = load("res://src/Persons/Artist.tscn")
 
 
-func _ready():
-	pass # Replace with function body.
-
-
 func newSinger():
 	var new = artistScene.instance()
 	var id = Data.generateNameAndGender()
@@ -30,7 +26,7 @@ func newSinger():
 		"mixer": randi()%6 + 1,
 	}
 	   #createPerson(pName, age, gender, skills, charisma, motivation, talent, popularity)
-	new.createPerson(id.name, min(18, randi()%100 + 1), id.gender, skills, data.charisma, data.motivation, data.talent, data.popularity)
+	new.createPerson(id.name, int(rand_range(18,44)), id.gender, skills, data.charisma, data.motivation, data.talent, data.popularity)
 	#print(Data.calculateSalary(new))
 	return new
 

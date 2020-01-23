@@ -47,10 +47,12 @@ func newWeek():
 				#TODO player create
 				var node = Global.GI.ArtistFactory.newArtist(advertise)
 				Global.GI.Applications.add_child(node)
+		advertise = -1
 		
 	if schoolTraining >= 0:
 		if schoolCharNode != null:
 			musicSchool()
+			schoolTraining = -1
 
 func musicSchool():
 	var boost = max(0, schoolCharNode.character.talent - 5) * 4
@@ -237,26 +239,22 @@ func _on_BtnAdvertise_button_up():
 
 func _on_BtnSend_button_up():
 	if $PSchool/ObPerson.selected == 0:
-		if Global.GI.actionPoints >= Data.AP_COST_SELF_TRAINING:
-			Global.GI.actionPoints -= Data.AP_COST_SELF_TRAINING
-
+		if Global.GI.checkAp(Data.AP_COST_SELF_TRAINING, "Music School"):
+			Global.GI.decAp(Data.AP_COST_SELF_TRAINING)
 			schoolTraining = $PSchool/ObSubject.selected
 			schoolCharNode = Global.GI.getPlayer()
 			Global.GI.Balance.addPositionExpenses("Music School", 500)
 			Global.GI.notify("You are going to the Music School", "Music School")
-		else:
-			Global.GI.notify("Not enough action points!", "Music School")
+
 	else:
-		if Global.GI.actionPoints >= Data.AP_COST_TRAINING:
-			Global.GI.actionPoints -= Data.AP_COST_TRAINING
+		if Global.GI.checkAp(Data.AP_COST_TRAINING, "Music School"):
+			Global.GI.decAp(Data.AP_COST_TRAINING)
 			schoolTraining = $PSchool/ObSubject.selected
 			schoolCharNode = Global.GI.getCompany().get_child($PSchool/ObPerson.selected - 1)
 			if schoolCharNode == null:
 				print("Something went wrong: schoolCharNode == null")
 			Global.GI.Balance.addPositionExpenses("Music School", 500)
 			Global.GI.notify("Artist send to Music School", "Music School")
-		else:
-			Global.GI.notify("Not enough action points!", "Music School")
 	prepareSchool()
 
 
@@ -271,9 +269,9 @@ func btnLabelHandling(label):
 	if (label == 0 and labelOffer[0].offerMade == true) or \
 		(label == 1 and labelOffer[1].offerMade == true) or \
 		(label == 2 and labelOffer[2].offerMade == true):
-		
-		if Global.GI.actionPoints >= Data.AP_COST_BANK:
-			Global.GI.actionPoints -= Data.AP_COST_BANK
+
+		if Global.GI.checkAp(Data.AP_COST_BANK, "Bank"):
+			Global.GI.decAp(Data.AP_COST_BANK)
 			$PLabel/BtnLabel1.disabled = true
 			$PLabel/BtnLabel2.disabled = true
 			$PLabel/BtnLabel3.disabled = true
@@ -284,8 +282,7 @@ func btnLabelHandling(label):
 			albumNode.contract.percentage = labelOffer[label].percentage
 			Global.GI.Balance.addPositionRevenue("Upfront Payment Label", labelOffer[label].upfront)
 			Global.GI.notify("Signed contract with Label!")
-		else:
-			Global.GI.notify("Not enough action points!")
+
 		
 	# Offer
 	else:

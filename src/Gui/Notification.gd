@@ -13,6 +13,9 @@ func notifySilent(string, origin):
 	pass
 	#TODO history log
 
+func warn(string):
+	print("Warn: " + str(string))
+
 func _start(string):
 	$Label.set_text(string)
 	$AnimationPlayer.play("pop")

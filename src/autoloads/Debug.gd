@@ -11,6 +11,15 @@ func _input(event):
 	if Global.debug:
 		if event is InputEventKey and not event.is_echo():
 			if event.pressed:
+				#Open Folder/VSCode
+				if event.scancode == KEY_F5:
+					print("Open Project Folder")
+					var arg = ProjectSettings.globalize_path("res://")
+					OS.shell_open(arg)
+				elif event.scancode == KEY_F6:
+					print("Open Project with VSCode")
+					var arg = ProjectSettings.globalize_path("res://") + "open_vs.bat"
+					OS.execute(arg, [], false)
 				#Close Debug Menu
 				if menuOpen and event.scancode == KEY_ESCAPE:
 					menuOpen = false

@@ -1,25 +1,11 @@
 # TODO
 
-## Friday 
-Logbook:
-- Jobs
-- Contracts
-- Art
+- [ ] Plan
 
-## Saturday 18
-Plan:
-- Art
-- Production Gui
+- [ ] Telefon
 
-## Sunday 20
-Phone:
-- Art
-Newspaper:
-- Art
-- Charts
-
-## Tuesday 21
-TV:
-- Save/Load
-- Menu
-- Art
+- [ ] Newspaper
+- [ ] Club
+- [ ] Negotiation
+- [ ] Save
+- [ ] Sale Mechanics

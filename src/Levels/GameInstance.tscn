@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://src/Albums/Album.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/Gui/LogGui.tscn" type="PackedScene" id=26]
 [ext_resource path="res://src/Visuals/Rooms/Lamp.tscn" type="PackedScene" id=27]
+[ext_resource path="res://src/Gui/PlanGui.tscn" type="PackedScene" id=28]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 99 )
@@ -88,6 +89,9 @@ visible = false
 [node name="PhoneGui" parent="UI" instance=ExtResource( 24 )]
 visible = false
 
+[node name="PlanGui" parent="UI" instance=ExtResource( 28 )]
+visible = false
+
 [node name="LogGui" parent="UI" instance=ExtResource( 26 )]
 visible = false
 
@@ -138,7 +142,7 @@ position = Vector2( 305, 112 )
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 129, 112 )
+position = Vector2( 340, 208 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 412, 112 )

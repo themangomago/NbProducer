@@ -13,6 +13,22 @@ onready var albumScene = preload("res://src/Albums/Album.tscn")
 const BOUNDARY_TOP = 60 * 60
 const BOUNDARY_BOTTOM = 15 * 60
 
+func _ready():
+	SetupDebug()
+	
+func SetupDebug():
+	var cat2 = Debug.addCategory("Songs")
+	Debug.addOption(cat2, "Add long songs", funcref(self, "debugAddSongs"), 0)
+
+func debugAddSongs(dummy):
+	for i in range(5):
+		var song = songScene.instance()
+		song.data.ready = true
+		song.data.title = "Dummy " + str(i)
+		song.data.duration = int(rand_range(400, 600))
+		song.data.quality = 5
+		Global.GI.getSongs().add_child(song)
+
 func clear():
 	artistNodes.clear()
 	$OptWriter.clear()
@@ -103,27 +119,24 @@ func _on_BtnNewSong_button_up():
 		if artistNodes[$OptMelody.selected].is_in_group("player"):
 			apReq += Data.AP_COST_COMPOSE
 
-		if Global.GI.actionPoints < apReq:
-			Global.GI.notify("Not enough action points! Go to bed!")
-			return
-		
-		Global.GI.actionPoints -= apReq
+		if Global.GI.checkAp(apReq, "Composing"):
+			Global.GI.decAp(apReq)
 
-		#	"ready": false,
-		#	"title": 0,
-		#	"duration": 150,
-		#	"quality": 0
-		song = songScene.instance()
-		song.data.ready = false
-		song.data.title = $TeSongTitle.text
-		song.data.duration = int(rand_range(120, 240))
-		var base = (float(artistNodes[$OptWriter.selected].character.skills.texter + max(artistNodes[$OptMelody.selected].character.skills.keyboard, artistNodes[$OptMelody.selected].character.skills.guitar)))/3
-		var maxVal = 10
-		if base < 4:
-			maxVal = 8
-		song.data.quality = int(rand_range(base, maxVal))
-		Global.GI.getSongs().add_child(song)
-		updateGui()
+			#	"ready": false,
+			#	"title": 0,
+			#	"duration": 150,
+			#	"quality": 0
+			song = songScene.instance()
+			song.data.ready = false
+			song.data.title = $TeSongTitle.text
+			song.data.duration = int(rand_range(120, 240))
+			var base = (float(artistNodes[$OptWriter.selected].character.skills.texter + max(artistNodes[$OptMelody.selected].character.skills.keyboard, artistNodes[$OptMelody.selected].character.skills.guitar)))/3
+			var maxVal = 10
+			if base < 4:
+				maxVal = 8
+			song.data.quality = int(rand_range(base, maxVal))
+			Global.GI.getSongs().add_child(song)
+			updateGui()
 
 
 
@@ -159,7 +172,7 @@ func _on_BtnRecord_button_up():
 		Global.GI.notify("Album is ready for recording!", "Compose")
 
 	else:
-		Global.GI.notify("Songs do not fit on LP!")
+		Global.GI.notify("Songs do not fit on LP!") #TODO: really?
 
 
 func _on_Timer_timeout():
