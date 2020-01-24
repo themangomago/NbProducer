@@ -9,7 +9,7 @@ func notify(string, origin):
 	_start(string)
 
 func notifySilent(string, origin):
-	print(origin + ":" + string)
+	print("Silent:" + origin + ":" + string)
 	pass
 	#TODO history log
 

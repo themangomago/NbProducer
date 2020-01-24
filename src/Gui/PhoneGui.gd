@@ -136,7 +136,8 @@ func prepareBank():
 	
 	updatePossibleCredit()
 	
-	$PBank/LCash.set_text("Balance: "+str(balanceNode.cash))
+	$PBank/LCash.bbcode_text = "Bank\n\nBalance: "+str(balanceNode.cash)+ "\n\nNeed more money? No problem! Take another loan. You will regret.. eerm.. NOT regret it... for sure *hehehehehe*"
+
 	
 	$PBank/THistory.text = "History\n"
 	for credit in balanceNode.credits:
@@ -231,7 +232,7 @@ func _on_BtnBorrow_button_up():
 func _on_BtnAdvertise_button_up():
 	if $PJob/ObAdvertise.selected != -1:
 		advertise = $PJob/ObAdvertise.selected
-		Global.GI.Balance.addPositionExpenses("Advertisement", 100)
+		Global.GI.Balance.addPositionExpenses("Advertisement", 500)
 		prepareJob()
 	else:
 		print("please select")

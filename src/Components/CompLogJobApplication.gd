@@ -7,7 +7,7 @@ var costs = 0
 func setup(node):
 	artist = node
 	var data = node.character
-	print(data.name)
+	#print(data.name)
 	$LPersona.set_text(data.name + ", " + data.gender + str(data.age))
 	
 	costs = Data.calculateSalary(artist) / 2

@@ -122,6 +122,7 @@ func _on_BtnNegotiate_button_up():
 		talentNode.contract.duration = albums
 		talentNode.contract.relationship = min(happiness + 2, 10)
 		talentNode.contract.salary = salary
+		print(talentNode.contract)
 		Global.GI.hireTalent(talentNode)
 		_on_BtnClose_button_up()
 		return

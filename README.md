@@ -1,7 +1,6 @@
 # TODO
 
-- [ ] Plan
-
+- [x] Plan
 - [ ] Telefon
 
 - [ ] Newspaper
@@ -9,3 +8,5 @@
 - [ ] Negotiation
 - [ ] Save
 - [ ] Sale Mechanics
+
+- [ ] Extend Contract on last album

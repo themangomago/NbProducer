@@ -25,11 +25,14 @@ func clearArtists():
 func newWeek():
 	if album:
 		assignedSinger.contract.duration -= 1
-		
-		print(assignedSinger.contract.duration)
+
 		if assignedSinger.contract.duration <= 0:
-			print("expired")
-			#TODO move back to talent pool
+			Global.GI.Company.remove_child(assignedSinger)
+			Global.GI.TalentPool.add_child(assignedSinger)
+			assignedSinger.contract.signed = false
+			Global.GI.Notification.notify("Contract of " + assignedSinger.character.name + " expired", "HR")
+		elif assignedSinger.contract.duration == 1:
+			Global.GI.Notification.notify("Contract of " + assignedSinger.character.name + " expires after next album", "HR")
 		
 		album.data.produced = true
 		
@@ -37,6 +40,7 @@ func newWeek():
 		assignedSinger = null
 		$Button.set_text("Record it!")
 		$Button.disabled = false
+		Global.GI.Notification.notify("Album is now ready for production", "Studio")
 
 
 func updateGui():
@@ -81,7 +85,7 @@ func _on_item_selected(id):
 
 
 
-func calcTotal():
+func calcTotal(addToBalance = false):
 	var total = 0
 	assigned = []
 	#Hire Talents
@@ -92,16 +96,21 @@ func calcTotal():
 				var artist = Global.GI.Company.get_child(optBtn.selected - 1)
 				if artist.contract.signed == false:
 					total += artist.contract.salary
+					if addToBalance:
+						Global.GI.Balance.addPositionExpenses("Recording " + artist.character.name, artist.contract.salary)
 	
 	#Match Studio
 	match $BStudio.selected:
 		0:
 			total += 5000
+			if addToBalance: Global.GI.Balance.addPositionExpenses("Studio rent", 5000)
 		1:
 			total += 4000
+			if addToBalance: Global.GI.Balance.addPositionExpenses("Studio rent", 4000)
 		_:
 			total += 2500
-	print(total)
+			if addToBalance: Global.GI.Balance.addPositionExpenses("Studio rent", 2500)
+	
 
 func validate():
 	var dupl = false
@@ -113,7 +122,7 @@ func validate():
 
 func _on_Button_button_up():
 	if albums == null:
-		print("No album found")
+		Global.GI.Notification.warn("No album found!")
 		return
 	
 	if validate():
@@ -178,12 +187,12 @@ func _on_Button_button_up():
 		
 		album.data.quality = rating
 		
-		#TODO add costs
-		#TODO duration of artist not set correct
+		#Adding Costs:
+		calcTotal(true)
 		
 		assignedSinger = Company.get_child($BSinger.selected)
 		$Button.set_text("Recording...")
 		$Button.disabled = true
-		
+		Global.GI.Notification.notify("Recording album", "Studio")
 	else:
-		print("DUPLICATE FOUND")
+		Global.GI.Notification.warn("Artists can only play one instrument at a time.")

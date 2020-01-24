@@ -26,6 +26,7 @@ onready var Applications = $Applications
 onready var LogGui = $UI/LogGui
 onready var Albums = $Albums
 onready var Plan = $UI/PlanGui
+onready var TalentPool = $TalentPool
 
 func _ready():
 	Global.GI = self

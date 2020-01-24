@@ -95,8 +95,6 @@ visible = false
 [node name="LogGui" parent="UI" instance=ExtResource( 26 )]
 visible = false
 
-[node name="Notification" parent="UI" instance=ExtResource( 19 )]
-
 [node name="BtnClose" type="Button" parent="UI"]
 margin_left = 717.0
 margin_top = 3.0
@@ -121,6 +119,8 @@ __meta__ = {
 
 [node name="Week" parent="UI" instance=ExtResource( 18 )]
 visible = false
+
+[node name="Notification" parent="UI" instance=ExtResource( 19 )]
 
 [node name="Level" type="Node2D" parent="."]
 
