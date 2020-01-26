@@ -1,12 +1,19 @@
 # TODO
 
 - [x] Plan
-- [ ] Telefon
+- [x] Telefon
 
-- [ ] Newspaper
-- [ ] Club
-- [ ] Negotiation
+# Saturday
+- [x] Newspaper
+- [x] Club
+
+# Sunday
+- [x] Negotiation
+- [x] Sale Mechanics
+- [x] Chart
+
+# Monday
 - [ ] Save
-- [ ] Sale Mechanics
-
 - [ ] Extend Contract on last album
+- [ ] Balancing
+- [ ] Itch

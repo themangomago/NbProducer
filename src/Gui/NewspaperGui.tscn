@@ -9,50 +9,144 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 182, -15 )
+[node name="Bg" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 centered = false
+offset = Vector2( 0, -1 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 178.0
-margin_top = 135.0
-margin_right = 218.0
-margin_bottom = 149.0
+[node name="Layout" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label2" type="Label" parent="."]
-margin_left = 184.0
-margin_top = 265.0
-margin_right = 224.0
-margin_bottom = 279.0
+[node name="NoCharge" type="Label" parent="Layout"]
+margin_left = 760.0
+margin_top = 96.0
+margin_right = 821.0
+margin_bottom = 110.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "No Charge"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Label3" type="Label" parent="."]
-margin_left = 189.0
-margin_top = 385.0
-margin_right = 229.0
-margin_bottom = 399.0
+[node name="Artist1" type="Label" parent="Layout"]
+margin_left = 160.0
+margin_top = 183.0
+margin_right = 423.0
+margin_bottom = 200.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "Michael Jackson, m43"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Artist2" type="Label" parent="Layout"]
+margin_left = 160.0
+margin_top = 280.0
+margin_right = 423.0
+margin_bottom = 297.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "Michael Jackson, m43"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Artist3" type="Label" parent="Layout"]
+margin_left = 160.0
+margin_top = 376.0
+margin_right = 423.0
+margin_bottom = 393.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "Michael Jackson, m43"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Week" type="Label" parent="Layout"]
+margin_left = 289.0
+margin_top = 96.0
+margin_right = 672.0
+margin_bottom = 110.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = "Week x"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChartHit" type="Label" parent="Layout"]
+visible = false
+margin_left = 544.0
+margin_top = 157.0
+margin_right = 769.0
+margin_bottom = 173.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = " 1. Test Album Michael Aangelo"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Layout/ChartHit"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.94902, 0.941176, 0.882353, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="ChartHit2" type="Label" parent="Layout"]
+visible = false
+margin_left = 544.0
+margin_top = 157.0
+margin_right = 769.0
+margin_bottom = 173.0
+custom_colors/font_color = Color( 0.329412, 0.329412, 0.329412, 1 )
+text = " 1. Test Album Michael Aangelo"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Layout/ChartHit2"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.94902, 0.941176, 0.882353, 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="BtnClub1" type="Button" parent="."]
-margin_left = 371.0
-margin_top = 140.0
-margin_right = 423.0
-margin_bottom = 160.0
-text = "Visit 1"
+margin_left = 456.0
+margin_top = 160.0
+margin_right = 512.0
+margin_bottom = 179.0
+text = "Visit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BtnClub2" type="Button" parent="."]
-margin_left = 362.0
-margin_top = 280.0
-margin_right = 414.0
-margin_bottom = 300.0
-text = "Visit 2"
+margin_left = 456.0
+margin_top = 256.0
+margin_right = 512.0
+margin_bottom = 276.0
+text = "Visit"
 
 [node name="BtnClub3" type="Button" parent="."]
-margin_left = 360.0
-margin_top = 404.0
-margin_right = 412.0
-margin_bottom = 424.0
-text = "Visit 3"
+margin_left = 456.0
+margin_top = 352.0
+margin_right = 512.0
+margin_bottom = 372.0
+text = "Visit"
 __meta__ = {
 "_edit_use_anchors_": false
 }

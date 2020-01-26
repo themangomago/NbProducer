@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/smooth_jazz_club.png-776d2db47127631a3b1c84fddd49192f.stex"
+path="res://.import/concert.png-d4704a0671f052b6598f3c4e76bb6716.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/gui/smooth_jazz_club.png"
-dest_files=[ "res://.import/smooth_jazz_club.png-776d2db47127631a3b1c84fddd49192f.stex" ]
+source_file="res://assets/art/gui/concert.png"
+dest_files=[ "res://.import/concert.png-d4704a0671f052b6598f3c4e76bb6716.stex" ]
 
 [params]
 

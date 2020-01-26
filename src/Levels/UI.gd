@@ -15,12 +15,14 @@ func connectClub(pool):
 
 func closeActive():
 	if activeDisplay:
+		$BtnClose.hide()
 		$Bg.hide()
 		activeDisplay.hide()
 		activeDisplay = null
 
 func setActive(node):
 	$Bg.show()
+	$BtnClose.show()
 	node.show()
 	activeDisplay = node
 
@@ -28,7 +30,7 @@ func showNewspaper():
 	assert(Club != null)
 	closeActive()
 	if lastUpdateOnWeek < Global.GI.Week.week:
-		$NewspaperGui.setArtists(Club.get_child(0).character.name, Club.get_child(1).character.name, Club.get_child(2).character.name)
+		$NewspaperGui.setArtists(Club.get_child(0).character, Club.get_child(1).character, Club.get_child(2).character)
 		lastUpdateOnWeek = Global.GI.Week.week
 	setActive($NewspaperGui)
 

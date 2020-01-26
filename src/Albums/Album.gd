@@ -7,8 +7,8 @@ var data = {
 	"releaseWeek": 0,
 	"title": "No Title",
 	"duration": 150,
-	"quality": 0,
-	"sales": 0
+	"quality": 5,
+	"sales": true
 }
 
 var contract = {

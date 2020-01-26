@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/club.png-4cfd78f4b7547c99e70677b6da57c1f9.stex"
+path="res://.import/bottombar.png-0a2ff7f142d4435f867c042a2cfe1517.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/art/gui/club.png"
-dest_files=[ "res://.import/club.png-4cfd78f4b7547c99e70677b6da57c1f9.stex" ]
+source_file="res://assets/art/gui/bottombar.png"
+dest_files=[ "res://.import/bottombar.png-0a2ff7f142d4435f867c042a2cfe1517.stex" ]
 
 [params]
 

@@ -11,6 +11,7 @@ func addDiary(string, origin):
 	print("diary added")
 	print(string)
 	Data.diary.push_front({"string": string, "origin": origin, "week": Global.GI.Week.week})
+	updateDiary()
 
 func updateDiary():
 	$Diary/TeDiary.text = "MEMO:\n"

@@ -27,6 +27,7 @@ onready var LogGui = $UI/LogGui
 onready var Albums = $Albums
 onready var Plan = $UI/PlanGui
 onready var TalentPool = $TalentPool
+onready var Newspaper = $UI/NewspaperGui
 
 func _ready():
 	Global.GI = self
@@ -102,6 +103,8 @@ func scoutClub(id):
 			$UI.showClub(id)
 			selectedScoutedArtist = id
 			actionPoints -= Data.AP_COST_VISIT_CONCERT
+	else:
+		Notification.warn("You have already visited a club this week.")
 
 func negotiateTalent(talent):
 	if actionPoints >= Data.AP_COST_VISIT_CONCERT:
@@ -113,15 +116,15 @@ func hireTalent(talent):
 	$Company.add_child(talent)
 	Notification.notify("Talent hired: " + talent.character.name, "HR")
 
-func notify(string, from = ""):
-	print("deprecated: " + str(string) + " from: " + from)
-	Notification.notify(string, from)
-	$UI/LogGui.addDiary(string, from)
-
-func notifySilent(string, from):
-	print("deprecated: " + str(string) + " from: " + from)
-	Notification.notifySilent(string, from)
-	$UI/LogGui.addDiary(string, from)
+#func notify(string, from = ""):
+#	print("deprecated: " + str(string) + " from: " + from)
+#	Notification.notify(string, from)
+#	$UI/LogGui.addDiary(string, from)
+#
+#func notifySilent(string, from):
+#	print("deprecated: " + str(string) + " from: " + from)
+#	Notification.notifySilent(string, from)
+#	$UI/LogGui.addDiary(string, from)
 
 
 func performAction(type):

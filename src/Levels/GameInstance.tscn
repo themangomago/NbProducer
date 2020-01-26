@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Levels/GameInstance.gd" type="Script" id=1]
 [ext_resource path="res://src/Levels/Company.gd" type="Script" id=2]
@@ -24,7 +24,6 @@
 [ext_resource path="res://src/Persons/Player.tscn" type="PackedScene" id=22]
 [ext_resource path="res://src/Gui/BottomUi.tscn" type="PackedScene" id=23]
 [ext_resource path="res://src/Gui/PhoneGui.tscn" type="PackedScene" id=24]
-[ext_resource path="res://src/Albums/Album.tscn" type="PackedScene" id=25]
 [ext_resource path="res://src/Gui/LogGui.tscn" type="PackedScene" id=26]
 [ext_resource path="res://src/Visuals/Rooms/Lamp.tscn" type="PackedScene" id=27]
 [ext_resource path="res://src/Gui/PlanGui.tscn" type="PackedScene" id=28]
@@ -52,8 +51,6 @@ __meta__ = {
 [node name="Applications" type="Node" parent="."]
 
 [node name="Albums" type="Node" parent="."]
-
-[node name="Album" parent="Albums" instance=ExtResource( 25 )]
 
 [node name="Company" type="Node" parent="."]
 script = ExtResource( 2 )
@@ -96,11 +93,14 @@ visible = false
 visible = false
 
 [node name="BtnClose" type="Button" parent="UI"]
-margin_left = 717.0
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -64.0
 margin_top = 3.0
-margin_right = 747.0
+margin_right = 64.0
 margin_bottom = 23.0
-text = "x"
+text = "Close"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -142,7 +142,7 @@ position = Vector2( 305, 112 )
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 340, 208 )
+position = Vector2( 347, 112 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 412, 112 )

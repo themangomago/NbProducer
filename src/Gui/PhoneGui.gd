@@ -14,10 +14,15 @@ var labelAlbum = -1
 
 var advertise = -1
 
+
+
 # {"upfront": 1000, "percentage": 20}
-var labelOffer = [{"offerMade": false, "upfront": 1000, "percentage": 20}, \
-	{"offerMade": false, "upfront": 1000, "percentage": 20}, \
-	{"offerMade": false, "upfront": 1000, "percentage": 20}]
+var labelOffer = [{"offerMade": false, "upfront": 0, "percentage": 20}, \
+	{"offerMade": false, "upfront": 8000, "percentage": 10}, \
+	{"offerMade": false, "upfront": 10000, "percentage": 5}]
+
+func createOffers(quality, label):
+	labelOffer[label].upfront =  int(labelOffer[label].upfront * max(1, float(1.0+(quality - 5.0)/10)))
 
 
 func _ready():
@@ -276,13 +281,16 @@ func btnLabelHandling(label):
 			$PLabel/BtnLabel1.disabled = true
 			$PLabel/BtnLabel2.disabled = true
 			$PLabel/BtnLabel3.disabled = true
-			$PLabel/TeLog.text += "Accepted offer from label " + str(label) + "\n"
+			$PLabel/TeLog.text += "Accepted offer from label " + Data.labelNames[label] + "\n"
 			var albumNode = Global.GI.getAlbums().get_child($PLabel/ObAlbum.selected)
 			albumNode.contract.label = label
 			albumNode.contract.upfront = labelOffer[label].upfront
 			albumNode.contract.percentage = labelOffer[label].percentage
+			albumNode.data.released = true
+			albumNode.data.releaseWeek = Global.GI.Week.week
+			
 			Global.GI.Balance.addPositionRevenue("Upfront Payment Label", labelOffer[label].upfront)
-			Global.GI.notify("Signed contract with Label!")
+			Global.GI.notify("Signed contract with Label " + Data.labelNames[label] + "!")
 
 		
 	# Offer
@@ -292,8 +300,17 @@ func btnLabelHandling(label):
 		
 		# Check label conditions
 		if labelCondition(label):
+			
+			if $PLabel/ObAlbum.selected == -1:
+				Global.GI.Notification.warn("No album was selected.")
+				return
+			
 			# Create offer
-			$PLabel/TeLog.text += "Offer from label " + str(label) + "\n"
+			var album = Global.GI.getAlbums().get_child($PLabel/ObAlbum.selected)
+			createOffers(album.data.quality, label)
+			
+			$PLabel/TeLog.text += "Offer from label " + Data.labelNames[label] + ":\n"
+			$PLabel/TeLog.text += "Upfront payment: $" + str(labelOffer[label].upfront) + " Percentage: " + str(labelOffer[label].percentage) + "%\n"
 			
 			# Sign
 			if label == 0:

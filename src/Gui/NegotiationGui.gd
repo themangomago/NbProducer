@@ -62,10 +62,10 @@ func setArtist(talent):
 	while (skill1.name == skill2.name):
 		skill2 = randomTalent(talent)
 
-	$Notes/Atmosphere.setup("Atmosphere", atmosphere)
-	$Notes/Popularity.setup("Popularity", popularity)
-	$Notes/Random1.setup(skill1.name, skill1.value)
-	$Notes/Random2.setup(skill2.name, skill2.value)
+	$Atmosphere.setup("Atmosphere", atmosphere)
+	$Popularity.setup("Popularity", popularity)
+	$Random1.setup(skill1.name, skill1.value)
+	$Random2.setup(skill2.name, skill2.value)
 	
 	# Contract
 	albums = randi() % 3 + 1
@@ -75,37 +75,37 @@ func setArtist(talent):
 	updateNegotiation()
 
 	# Id Card
-	$IdCard/LabelName.set_text(talent.character.name)
-	$IdCard/LabelAge.set_text(str(talent.character.age))
-	$IdCard/LabelGender.set_text(talent.character.gender)
+	$LabelName.set_text(talent.character.name)
+	$LabelAge.set_text(str(talent.character.age))
+	$LabelGender.set_text(talent.character.gender)
 	
-	$Contract/Bar.setup("Happiness", happiness)
+	$Bar.setup("Happiness", happiness)
 
 func updateNegotiation():
-	$Contract/Albums/Artist.set_text(str(artistAlbums))
-	$Contract/Albums/You.set_text(str(albums))
-	$Contract/Money/Artist.set_text(str(artistSalary))
-	$Contract/Money/You.set_text(str(salary))
-	$Contract/Bar.setValue(happiness)
+	$Albums/Artist.set_text(str(artistAlbums))
+	$Albums/You.set_text(str(albums))
+	$Money/Artist.set_text(str(artistSalary))
+	$Money/You.set_text(str(salary))
+	$Bar.setValue(happiness)
 	
 func _Album_on_Dec_button_up():
 	albums = max(1, albums - 1)
-	$Contract/Albums/You.set_text(str(albums))
+	$Albums/You.set_text(str(albums))
 
 
 func _Album_on_Inc_button_up():
 	albums = min(5, albums + 1)
-	$Contract/Albums/You.set_text(str(albums))
+	$Albums/You.set_text(str(albums))
 
 
 func _Salary_on_Dec_button_up():
 	salary = max(salary - 50, salary - 10)
-	$Contract/Money/You.set_text(str(salary))
+	$Money/You.set_text(str(salary))
 
 
 func _Salary_on_Inc_button_up():
 	salary = min(artistSalary + 50, salary + 10)
-	$Contract/Money/You.set_text(str(salary))
+	$Money/You.set_text(str(salary))
 
 
 
@@ -152,12 +152,12 @@ func _on_BtnNegotiate_button_up():
 	happiness -= 1
 	
 	if happiness <= 0:
-		$Contract/BtnNegotiate.disabled = true
-		$Contract/BtnNegotiate.text = "Cancelled.."
+		$BtnNegotiate.disabled = true
+		$BtnNegotiate.text = "Cancelled.."
 	if salary == artistSalary and albums == artistAlbums:
 		talentNode.character.motivation = min(talentNode.character.motivation + 1, 10)
 		signed = true
-		$Contract/BtnNegotiate.text = "Sign Contract"
+		$BtnNegotiate.text = "Sign Contract"
 		
 
 	updateNegotiation()
