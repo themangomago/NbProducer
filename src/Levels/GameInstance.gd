@@ -50,6 +50,9 @@ func _ready():
 func newGame():
 	#Populate Talentpool
 	$UI/Week.newGame()
+	
+	lockPlayer = true
+	$UI/Bg.show()
 	$UI/NewUserGui.updateGui()
 	$UI/NewUserGui.show()
 

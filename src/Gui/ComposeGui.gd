@@ -184,10 +184,10 @@ func _on_BtnRecord_button_up():
 		album.data.title = $TeAlbumTitle.text
 		Global.GI.getAlbums().add_child(album)
 		updateGui()
-		Global.GI.notify("Album is ready for recording!", "Compose")
+		Global.GI.Notification.notify("Album is ready for recording!", "Compose")
 
 	else:
-		Global.GI.notify("Songs do not fit on LP!") #TODO: really?
+		Global.GI.Notification.warn("Songs do not fit on LP!") #TODO: really?
 
 
 func _on_Timer_timeout():

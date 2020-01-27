@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/Gui/BottomUi.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/gui/smalllogo.png" type="Texture" id=2]
 [ext_resource path="res://assets/art/gui/bottombar.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/MenuFont.tres" type="DynamicFont" id=4]
 
 [node name="BottomUi" type="Control"]
 anchor_top = 1.0
@@ -21,29 +22,40 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 3 )
 
 [node name="LWeek" type="Label" parent="."]
-margin_left = 117.0
-margin_top = 6.0
-margin_right = 289.0
-margin_bottom = 31.0
+margin_left = 176.0
+margin_top = 12.0
+margin_right = 280.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 4 )
+text = "Week 1"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LMoney" type="Label" parent="."]
-margin_left = 365.0
-margin_top = 6.0
-margin_right = 537.0
+margin_left = 384.0
+margin_top = 12.0
+margin_right = 576.0
 margin_bottom = 31.0
+custom_fonts/font = ExtResource( 4 )
+text = "$10000"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LAction" type="Label" parent="."]
-margin_left = 623.0
-margin_top = 3.0
-margin_right = 795.0
-margin_bottom = 28.0
+margin_left = 640.0
+margin_top = 12.0
+margin_right = 816.0
+margin_bottom = 36.0
+custom_fonts/font = ExtResource( 4 )
+text = "Action Points: 20"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 480, 50 )
+position = Vector2( 480, 54 )
 texture = ExtResource( 2 )

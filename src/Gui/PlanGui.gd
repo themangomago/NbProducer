@@ -111,6 +111,7 @@ func calcTotal(addToBalance = false):
 			total += 2500
 			if addToBalance: Global.GI.Balance.addPositionExpenses("Studio rent", 2500)
 	
+	$LCosts.set_text("Total Costs: $" + str(int(total)))
 
 func validate():
 	var dupl = false

@@ -53,8 +53,9 @@ func _physics_process(delta):
 
 
 	if target != null and Input.is_action_just_pressed("ui_up"):
-		Global.GI.performAction(target)
 		processAnimState(AnimState.Idle)
+		Global.GI.performAction(target)
+
 
 func direction(dir):
 	if dir == Types.Direction.Left:

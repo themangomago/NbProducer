@@ -90,9 +90,9 @@ func musicSchool():
 	if Global.prngByChance(chance + boost):
 		# Succesful
 		if schoolCharNode.character.gender == "m":
-			Global.GI.notifySilent("Artist " + schoolCharNode.character.name + " improved his skills", "Music School")
+			Global.GI.Notification.notify("Artist " + schoolCharNode.character.name + " improved his skills", "Music School")
 		else:
-			Global.GI.notifySilent("Artist " + schoolCharNode.character.name + " improved her skills", "Music School")
+			Global.GI.Notification.notify("Artist " + schoolCharNode.character.name + " improved her skills", "Music School")
 
 		match schoolTraining:
 			0:
@@ -109,9 +109,9 @@ func musicSchool():
 	else:
 		# Not Successful
 		if schoolCharNode.character.gender == "m":
-			Global.GI.notifySilent("Artist " + schoolCharNode.character.name + " could not improve his skills", "Music School")
+			Global.GI.Notification.notify("Artist " + schoolCharNode.character.name + " could not improve his skills", "Music School")
 		else:
-			Global.GI.notifySilent("Artist " + schoolCharNode.character.name + " could not improve her skills", "Music School")
+			Global.GI.Notification.notify("Artist " + schoolCharNode.character.name + " could not improve her skills", "Music School")
 
 
 
@@ -257,7 +257,7 @@ func _on_BtnSend_button_up():
 			schoolTraining = $PSchool/ObSubject.selected
 			schoolCharNode = Global.GI.getPlayer()
 			Global.GI.Balance.addPositionExpenses("Music School", 500)
-			Global.GI.notify("You are going to the Music School", "Music School")
+			Global.GI.Notification.notify("You are going to the Music School", "Music School")
 
 	else:
 		if Global.GI.checkAp(Data.AP_COST_TRAINING, "Music School"):
@@ -267,7 +267,7 @@ func _on_BtnSend_button_up():
 			if schoolCharNode == null:
 				print("Something went wrong: schoolCharNode == null")
 			Global.GI.Balance.addPositionExpenses("Music School", 500)
-			Global.GI.notify("Artist send to Music School", "Music School")
+			Global.GI.Notification.notify("Artist send to Music School", "Music School")
 	prepareSchool()
 
 
@@ -297,7 +297,7 @@ func btnLabelHandling(label):
 			albumNode.data.releaseWeek = Global.GI.Week.week
 			
 			Global.GI.Balance.addPositionRevenue("Upfront Payment Label", labelOffer[label].upfront)
-			Global.GI.notify("Signed contract with Label " + Data.labelNames[label] + "!")
+			Global.GI.Notification.notify("Signed contract with Label " + Data.labelNames[label] + "!", "Label")
 
 		
 	# Offer

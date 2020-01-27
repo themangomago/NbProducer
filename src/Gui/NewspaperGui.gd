@@ -16,10 +16,10 @@ func debugAddAlbum(count):
 	
 	for i in range(count):
 		var node = scene.instance()
-		node.data.title = "Album"+str(i)
+		node.data.title = "Beyond the Morningstar"
 		node.data.produced = true
 		node.data.released = true
-		node.data.quality = 4 +i 
+		node.data.quality = 9 +i 
 		Global.GI.Albums.add_child(node)
 
 func setArtists(club1, club2, club3):

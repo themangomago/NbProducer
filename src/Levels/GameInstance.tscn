@@ -102,16 +102,17 @@ visible = false
 visible = false
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -64.0
-margin_top = 3.0
-margin_right = 64.0
-margin_bottom = 23.0
-text = "Close"
+margin_left = 376.0
+margin_top = 5.0
+margin_right = 476.0
+margin_bottom = 25.0
+text = "Close Window"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="BtnNextWeek" type="Button" parent="UI"]
+visible = false
 margin_left = 96.0
 margin_top = 508.0
 margin_right = 178.0
@@ -146,7 +147,7 @@ position = Vector2( 305, 112 )
 [node name="Player" parent="Level" groups=[
 "player",
 ] instance=ExtResource( 4 )]
-position = Vector2( 347, 112 )
+position = Vector2( 143, 208 )
 
 [node name="Staircase" parent="Level" instance=ExtResource( 10 )]
 position = Vector2( 412, 112 )

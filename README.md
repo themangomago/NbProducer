@@ -17,14 +17,16 @@
 - [x] Save 1
 - [x] Extend Contract on last album 0.2
 - [x] Char Creating Screen 1.5
-- [ ] Balancing 4
+
 # Thuesday 28.
 - [ ] Itch 2
+- [ ] GJ
 - [ ] Bugfixing 4
- 
+- [ ] Game Over 
+- [ ] Balancetests
+
 # Bugs
--Plan album costs not updated
--notify und notifysilent calls
+- newspaper not reset correctly?
 - when an album is produced, the second album cant be send in to label
 
 
