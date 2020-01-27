@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Components/CompLogContracts.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/HandwritingFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://src/Components/CompStar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/art/gui/buttons/fire/normal.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/gui/buttons/fire/hover.png" type="Texture" id=5]
+[ext_resource path="res://assets/art/gui/buttons/extend/normal.png" type="Texture" id=6]
+[ext_resource path="res://assets/art/gui/buttons/extend/hover.png" type="Texture" id=7]
 
 [node name="CompLogContracts" type="Control"]
 anchor_right = 1.0
@@ -171,4 +173,16 @@ texture_hover = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BtnExtend" type="TextureButton" parent="."]
+margin_left = 114.0
+margin_top = 79.0
+margin_right = 210.0
+margin_bottom = 95.0
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="BtnFire" to="." method="_on_BtnFire_button_up"]
+[connection signal="button_up" from="BtnExtend" to="." method="_on_BtnExtend_button_up"]

@@ -15,11 +15,13 @@ func _ready():
 	pass # Replace with function body.
 
 
-func addPositionExpenses(position, expanses):
-	expenses.append({"position": position, "amount": expanses})
+func addPositionExpenses(position, amount):
+	var expe = int(amount)
+	expenses.append({"position": position, "amount": expe})
 
-func addPositionRevenue(position, expanses):
-	revenues.append({"position": position, "amount": expanses})
+func addPositionRevenue(position, amount):
+	var expe = int(amount)
+	revenues.append({"position": position, "amount": expe})
 
 
 func newWeek():

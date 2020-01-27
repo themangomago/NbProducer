@@ -6,3 +6,4 @@ func setValue(val):
 func setup(dname, startVal):
 	$ProgressBar.value = startVal
 	$Label.set_text(dname)
+

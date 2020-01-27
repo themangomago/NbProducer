@@ -18,6 +18,7 @@ func setArtist(talent):
 
 func _on_Button_button_up():
 	Global.GI.negotiateTalent(person)
+	Global.click()
 
 
 func _on_BtnClose_button_up():

@@ -27,6 +27,10 @@ func _ready():
 	$menuViewport/Viewport.size = Vector2(ProjectSettings.get_setting("display/window/size/width"), ProjectSettings.get_setting("display/window/size/height"))
 	
 	stateTransition(Types.GameStates.Menu)
+	
+		
+	if Global.userConfig.music:
+		playMusic()
 
 func updateLights():
 	for light in get_tree().get_nodes_in_group("light"):
@@ -58,6 +62,14 @@ func newGame():
 	if levelNode:
 		unloadLevel()
 	loadLevel(0)
+	levelNode.newGame()
+	stateTransition(Types.GameStates.Game)
+
+func continueGame():
+	if levelNode:
+		unloadLevel()
+	loadLevel(0)
+	levelNode.continueGame()
 	stateTransition(Types.GameStates.Game)
 
 func setLights(state):
@@ -65,3 +77,16 @@ func setLights(state):
 
 func getLights():
 	return lights
+
+func playMusic(val = true):
+	if val:
+		$AudioStreamPlayer.play()
+	else:
+		$AudioStreamPlayer.stop()
+
+func click():
+	$Click.play()
+
+func _on_AudioStreamPlayer_finished():
+	if Global.userConfig.music:
+		playMusic()

@@ -118,6 +118,7 @@ func _Salary_on_Inc_button_up():
 
 func _on_BtnNegotiate_button_up():
 	if signed:
+		Global.click()
 		talentNode.contract.signed = true
 		talentNode.contract.duration = albums
 		talentNode.contract.relationship = min(happiness + 2, 10)

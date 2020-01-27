@@ -121,6 +121,7 @@ func validate():
 	return true
 
 func _on_Button_button_up():
+	Global.click()
 	if albums == null:
 		Global.GI.Notification.warn("No album found!")
 		return

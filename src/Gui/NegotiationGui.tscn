@@ -173,6 +173,9 @@ margin_top = 180.0
 margin_right = 729.0
 margin_bottom = 213.0
 text = "Negotiate"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Albums/Dec" to="." method="_Album_on_Dec_button_up"]
 [connection signal="button_up" from="Albums/Inc" to="." method="_Album_on_Inc_button_up"]
 [connection signal="button_up" from="Money/Dec" to="." method="_Salary_on_Dec_button_up"]

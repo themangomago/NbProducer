@@ -29,6 +29,19 @@ func debugAddSongs(dummy):
 		song.data.quality = 5
 		Global.GI.getSongs().add_child(song)
 
+func restoreSong(data):
+	var song = songScene.instance()
+	song.data = data
+	return song
+
+func restoreAlbum(data, contract, songs):
+	var album = albumScene.instance()
+	album.data = data
+	album.contract = contract
+	for song in songs:
+		album.add_child(restoreSong(song.data))
+	return album
+
 func clear():
 	artistNodes.clear()
 	$OptWriter.clear()
@@ -107,11 +120,12 @@ func newWeek():
 
 func removeSong(target):
 	target.queue_free()
-	
+	Global.click()
 	$Timer.start()
 
 func _on_BtnNewSong_button_up():
 	if not song:
+		Global.click()
 		# AP Costs
 		var apReq = 0
 		if artistNodes[$OptWriter.selected].is_in_group("player"):
@@ -142,6 +156,7 @@ func _on_BtnNewSong_button_up():
 
 func _on_BtnRecord_button_up():
 	print("TODO: check if production is already in progress")
+	Global.click()
 	if totalLength >= BOUNDARY_BOTTOM and totalLength <= BOUNDARY_TOP:
 		
 		var count = 0

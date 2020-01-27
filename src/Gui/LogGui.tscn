@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://src/Gui/LogGui.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/gui/log.png" type="Texture" id=2]
 [ext_resource path="res://assets/fonts/HandwritingFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://src/Components/CompLogJobApplication.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/Components/CompLogContracts.tscn" type="PackedScene" id=5]
+[ext_resource path="res://assets/sounds/turn.wav" type="AudioStream" id=6]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -228,6 +229,11 @@ margin_bottom = 0.0
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = 10.0
+bus = "Sound"
 [connection signal="button_up" from="Diary/BtnMemo" to="." method="_on_BtnMemo_button_up"]
 [connection signal="button_up" from="Diary/BtnJobs" to="." method="_on_BtnJobs_button_up"]
 [connection signal="button_up" from="Diary/BtnContracts" to="." method="_on_BtnContracts_button_up"]

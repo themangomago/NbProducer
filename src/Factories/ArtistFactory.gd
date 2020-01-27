@@ -57,3 +57,8 @@ func newArtist(type):
 
 	return node
 
+func restoreArtist(character, contract):
+	var new = artistScene.instance()
+	new.character = character
+	new.contract = contract
+	return new

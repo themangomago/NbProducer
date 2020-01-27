@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/GameManager.gd" type="Script" id=1]
 [ext_resource path="res://assets/art/menu/nbSplash.png" type="Texture" id=2]
 [ext_resource path="res://src/Menu/Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/music/lemusic.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/sounds/buttonClick.wav" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "start"
@@ -92,3 +94,12 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BootSplash"]
 autoplay = "start"
 anims/start = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+bus = "Music"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+bus = "Sound"
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_AudioStreamPlayer_finished"]

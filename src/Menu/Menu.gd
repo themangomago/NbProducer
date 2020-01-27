@@ -6,6 +6,7 @@ func _ready():
 	Global.setMenu(self)
 	$Version.bbcode_text = "[right]"+ Global.getVersionString() + "[/right]"
 	stateTransition(MenuState.Main)
+	updateSettings()
 
 func _on_ButtonExit_button_up():
 	if Global.getGameManager().state == Types.GameStates.Menu:
@@ -16,10 +17,9 @@ func _on_ButtonExit_button_up():
 func _on_ButtonSettings_button_up():
 	if Global.getGameManager().state == Types.GameStates.Menu:
 		stateTransition(MenuState.Settings)
+		Global.click()
 
-func _on_ButtonPlay_button_up():
-	if Global.getGameManager().state == Types.GameStates.Menu:
-		Global.getGameManager().newGame()
+
 
 func stateTransition(to):
 	if to == MenuState.Main:
@@ -31,18 +31,38 @@ func stateTransition(to):
 		$Main.hide()
 
 func updateSettings():
-	var lights = Global.getGameManager().getLights()
-
-	if Global.userConfig.fullscreen:
-		$Settings/ButtonFullscreen/Text.bbcode_text = "[center]Fullscreen: On[/center]"
+	if Global.userConfig.music:
+		$Settings/ButtonMusic/Text.bbcode_text = "[center]Music: On[/center]"
 	else:
-		$Settings/ButtonFullscreen/Text.bbcode_text = "[center]Fullscreen: Off[/center]"
+		$Settings/ButtonMusic/Text.bbcode_text = "[center]Music: Off[/center]"
+
+	if Global.savegame != null:
+		$Main/ButtonContinue.show()
+	else:
+		$Main/ButtonContinue.hide()
 
 func _on_ButtonBack_button_up():
 	stateTransition(MenuState.Main)
+	Global.click()
 
 
 func _on_ButtonFullscreen_button_up():
 	Global.fullscreen()
 	updateSettings()
+	Global.click()
 	
+
+func _on_ButtonMusic_button_up():
+	Global.toggleMusic()
+	updateSettings()
+	Global.click()
+
+func _on_ButtonPlay_button_up():
+	if Global.getGameManager().state == Types.GameStates.Menu:
+		Global.getGameManager().newGame()
+		Global.click()
+
+func _on_ButtonContinue_button_up():
+	if Global.getGameManager().state == Types.GameStates.Menu:
+		Global.getGameManager().continueGame()
+		Global.click()

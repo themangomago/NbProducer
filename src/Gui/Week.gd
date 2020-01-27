@@ -68,8 +68,10 @@ func newGame():
 	# Populate Talent Pool
 	for i in range(10):
 		TalentPool.add_child(ArtistFactory.newSinger())
-	
 	newWeek()
+
+func continueGame():
+	pass
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

@@ -208,26 +208,31 @@ func clear():
 	$PLabel.hide()
 
 func _on_BtnBank_button_up():
+	$AudioStreamPlayer.play()
 	clear()
 	prepareBank()
 	$PBank.show()
 
 func _on_BtnJob_button_up():
+	$AudioStreamPlayer.play()
 	clear()
 	prepareJob()
 	$PJob.show()
 	
 func _on_BtnSchool_button_up():
+	$AudioStreamPlayer.play()
 	clear()
 	prepareSchool()
 	$PSchool.show()
 
 func _on_BtnLabel_button_up():
+	$AudioStreamPlayer.play()
 	clear()
 	prepareLabel()
 	$PLabel.show()
 
 func _on_BtnBorrow_button_up():
+	Global.click()
 	if float($PBank/TAmount.text) <= (possibleTotalCredit - totalCredit):
 		Global.GI.Balance.credits.append({"amount": float($PBank/TAmount.text), "rate": rate, "week": Global.GI.Week.week})
 		Global.GI.Balance.cash += float($PBank/TAmount.text)
@@ -235,6 +240,7 @@ func _on_BtnBorrow_button_up():
 
 
 func _on_BtnAdvertise_button_up():
+	Global.click()
 	if $PJob/ObAdvertise.selected != -1:
 		advertise = $PJob/ObAdvertise.selected
 		Global.GI.Balance.addPositionExpenses("Advertisement", 500)
@@ -244,6 +250,7 @@ func _on_BtnAdvertise_button_up():
 
 
 func _on_BtnSend_button_up():
+	Global.click()
 	if $PSchool/ObPerson.selected == 0:
 		if Global.GI.checkAp(Data.AP_COST_SELF_TRAINING, "Music School"):
 			Global.GI.decAp(Data.AP_COST_SELF_TRAINING)
@@ -338,12 +345,15 @@ func btnLabelHandling(label):
 
 
 func _on_BtnLabel1_button_up():
+	Global.click()
 	btnLabelHandling(0)
 
 
 func _on_BtnLabel2_button_up():
+	Global.click()
 	btnLabelHandling(1)
 
 
 func _on_BtnLabel3_button_up():
+	Global.click()
 	btnLabelHandling(2)

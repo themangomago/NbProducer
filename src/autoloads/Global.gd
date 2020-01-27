@@ -29,8 +29,11 @@ const NbConfig = {
 # User Config
 var userConfig = {
 	"highscore": 0,
-	"fullscreen": false
+	"fullscreen": false,
+	"music": true
 }
+
+var savegame = null
 
 # GameMasterNode
 var gm = null
@@ -57,9 +60,22 @@ func _ready():
 	loadConfig()
 	videoSetup(1)
 	fullscreen(userConfig.fullscreen)
+	loadGame()
 
 
+func saveGame(dataBlob):
+	var save = File.new()
+	save.open("user://savegame.sav", File.WRITE)
+	save.store_line(to_json(dataBlob))
+	save.close()
+	loadGame() #Continue Trick
 
+func loadGame():
+	var save = File.new()
+	if save.file_exists("user://savegame.sav"):
+		save.open("user://savegame.sav", File.READ)
+		savegame = parse_json(save.get_line())
+	
 # Config Save
 func saveConfig():
 	var cfgFile = File.new()
@@ -78,6 +94,7 @@ func loadConfig():
 	var data = parse_json(cfgFile.get_line())
 	userConfig.highscore = data.highscore
 	userConfig.fullscreen = data.fullscreen
+	userConfig.music = data.music
 	# When stuck here, the config attributes have been changed.
 	# Delete the Config.cfg to solve this issue.
 	# Project->Open Project Data Folder-> Config.cfg
@@ -104,6 +121,18 @@ func fullscreen(set = null):
 		videoSetup(3)
 		OS.window_fullscreen = true
 
+func toggleMusic():
+	if userConfig.music:
+		userConfig.music = false
+		gm.playMusic(false)
+	else:
+		userConfig.music = true
+		gm.playMusic()
+	saveConfig()
+
+func click():
+	gm.click()
+
 # PRNG
 func prng():
 	#TODO monte carlo simulation over rng
@@ -116,7 +145,6 @@ func prngByChance(chanceInPercent):
 	if value <= chanceInPercent:
 		return true
 	return false
-
 
 ###############################################################################
 # Getter/Setter

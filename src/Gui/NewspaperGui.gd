@@ -105,17 +105,18 @@ func getSize(sales):
 		c = 9
 	return c
 		
-func _on_BtnClose_button_up():
-	get_parent().closeActive()
 
 
 func _on_BtnClub1_button_up():
 	Global.GI.scoutClub(0)
+	Global.click()
 
 
 func _on_BtnClub2_button_up():
 	Global.GI.scoutClub(1)
+	Global.click()
 
 
 func _on_BtnClub3_button_up():
 	Global.GI.scoutClub(2)
+	Global.click()

@@ -20,6 +20,12 @@ func updateDiary():
 		$Diary/TeDiary.text += entry.origin + ": " + entry.string + " (Week: " + str(entry.week) + ")\n"
 
 
+func getMemo():
+	return $Diary/TeDiary.text
+
+func setMemo(text):
+	$Diary/TeDiary.text = text
+
 func updateGui():
 	_on_BtnMemo_button_up()
 
@@ -90,18 +96,21 @@ func _on_BtnJobs_button_up():
 	updateJobs()
 	$Jobs.show()
 	$Bg.frame = 2
+	$AudioStreamPlayer.play()
 
 func _on_BtnContracts_button_up():
 	clear()
 	updateContracts()
 	$Contracts.show()
 	$Bg.frame = 1
+	$AudioStreamPlayer.play()
 
 func _on_BtnMemo_button_up():
 	clear()
 	updateDiary()
 	$Diary.show()
 	$Bg.frame = 0
+	$AudioStreamPlayer.play()
 
 
 func _on_Timer_timeout():
